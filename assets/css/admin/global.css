@@ -1,0 +1,14 @@
+@import url(bootstrap.css);
+@import url(admin.css);
+@import url(flick/jquery-ui-1.10.4.custom.min.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(jquery.fancybox.css);
+
+/* number plate font import */
+
+@font-face {
+    font-family: number_plate;
+    src: url('http://paweldecowski.com/fonts/number_plate.ttf');
+}
+
