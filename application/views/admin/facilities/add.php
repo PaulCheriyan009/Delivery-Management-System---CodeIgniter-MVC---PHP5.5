@@ -64,13 +64,43 @@
           </div>
           <!-- ADDRESS -->
             <div class="control-group">
-                <label for="inputError" class="control-label">Postcode</label>
+                <label for="inputError" class="control-label">Lookup</label>
                 <div class="controls">
-                    <input type="text" id="facility_postcode" name="facility_postcode" value="<?php echo set_value('facility_postcode'); ?>" >
+                    <input type="text" id="autocomplete" name="autocomplete" value="<?php echo set_value('facility_address1'); ?>" >
                     <!--<span class="help-inline">Woohoo!</span>-->
-                    <button id="lookup_postcode" class="btn btn-primary">Lookup Postcode</button>
                 </div>
             </div>
+            <!-- begin hidden address fields -->
+            <div class="hidden-slide-down">
+            <div class="control-group">
+                <label for="inputError" class="control-label">Address 1</label>
+                <div class="controls">
+                    <input type="text" id="street_number" name="facility_address1" value="<?php echo set_value('facility_address1'); ?>" >
+                    <!--<span class="help-inline">Woohoo!</span>-->
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputError" class="control-label">Address 2</label>
+                <div class="controls">
+                    <input type="text" id="route" name="facility_address2" value="<?php echo set_value('facility_address2'); ?>" >
+                    <!--<span class="help-inline">Woohoo!</span>-->
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputError" class="control-label">Town / City</label>
+                <div class="controls">
+                    <input type="text" id="locality" name="facility_locality" value="<?php echo set_value('facility_locality'); ?>" >
+                    <!--<span class="help-inline">Woohoo!</span>-->
+                </div>
+            </div>
+                <div class="control-group">
+                    <label for="inputError" class="control-label">Postcode</label>
+                    <div class="controls">
+                        <input type="text" id="postal_code" name="facility_postcode" value="<?php echo set_value('facility_postcode'); ?>" >
+                        <!--<span class="help-inline">Woohoo!</span>-->
+                    </div>
+                </div>
+            </div><!-- end hdn addresses -->
             <div class="control-group">
                 <label for="inputError" class="control-label">Max Capacity</label>
                 <div class="controls">

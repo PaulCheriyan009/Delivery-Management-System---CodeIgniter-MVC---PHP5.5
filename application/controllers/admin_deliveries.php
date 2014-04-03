@@ -35,10 +35,12 @@ class Admin_deliveries extends CI_Controller {
         $config['base_url'] = base_url().'admin/deliveries';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
-        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
+//        $config['next_link'] = '<li><a href="#">&raquo;</a></li>';
+//        $config['prev_link'] = '<li><a href="#">&laquo;</a></li>';
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
 

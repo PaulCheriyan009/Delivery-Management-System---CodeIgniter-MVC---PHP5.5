@@ -16,6 +16,8 @@ $('#close-fancybox').click(function(e) {
     parent.$.fancybox.close();
 });
 $(function(){
+    initialize();
+    $('.hidden-slide-down').hide();
     // enable areyousure for all form elements
     $('form').areYouSure({
         'message':'You have entered information that will be lost if you continue.'
@@ -66,27 +68,41 @@ $(function(){
     Admin.toggleLoginRecovery();
     e.preventDefault();
   });
-    $('#lookup_postcode').click(function(e){
-        e.preventDefault();
-        // ajax stuff here to fill address fields
-        var postcode = $('#facility_postcode').val();
+    var component_form = {
+        'street_number': 'short_name',
+        'route': 'long_name',
+        'locality': 'long_name',
+        'postal_code': 'short_name'
+    };
+
+    function initialize() {
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), { types: [ 'geocode' ] });
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            fillInAddress();
+        });
+    }
+    $("#autocomplete").keyup(function() {
+
+        if (!this.value) {
+            $('.hidden-slide-down').hide('slide',500);
+        }
+
     });
-  // navbar stuff
-//    //store the element
-//    var $cache = $('header');
-//    //store the initial position of the element
-//    var vTop = $cache.offset().top - parseFloat($cache.css('margin-top').replace(/auto/, 0));
-//    $(window).scroll(function (event) {
-//        // what the y position of the scroll is
-//        var y = $(this).scrollTop();
-//
-//        // whether that's below the form
-//        if (y >= vTop) {
-//            // if so, ad the fixed class
-//            $cache.addClass('stuck');
-//        } else {
-//            // otherwise remove it
-//            $cache.removeClass('stuck');
-//        }
-//    });
+    function fillInAddress() {
+        var place = autocomplete.getPlace();
+
+        for (var component in component_form) {
+            document.getElementById(component).value = "";
+            document.getElementById(component).disabled = false;
+        }
+
+        for (var j = 0; j < place.address_components.length; j++) {
+            var att = place.address_components[j].types[0];
+            if (component_form[att]) {
+                var val = place.address_components[j][component_form[att]];
+                document.getElementById(att).value = val;
+            }
+        }
+        $('.hidden-slide-down').show('slide',500);
+    }
 });

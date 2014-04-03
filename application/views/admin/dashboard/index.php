@@ -41,7 +41,7 @@
                     <ul>
                         <?php
                         foreach($new_deliveries as $row) {
-                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td><i class="fa fa-clock-o"></i> '.$row['time_stamp'].'</td><td><a class="label label-warning fancybox fancybox.iframe" href="'.site_url("admin").'/deliveries/add_facility/'.$row['delivery_id'].'">view/edit facilities</a></td></tbody></table></li>';
+                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td><i class="fa fa-clock-o"></i> '.$row['time_stamp'].'</td><td></td><td>test</td></tbody></table></li>';
                         }
                         ?>
                     </ul>
@@ -53,15 +53,6 @@
             <div class="span4 pagination-centered">
                 <div class="items">test</div>
             </div>
-        </div>
-    </div>
-    <div class="row-fluid information-panel white-panel">
-        <div class="span6">
-            <h2>Information</h2>
-            <p class="lead">If a delivery is visiting more than one facility on its rounds, you can use the "view/edit facilities" feature to add new facilities to a delivery. You cannot add the same facility twice to an delivery as deliveries to facilities are automatically grouped by facility.</p>
-        </div>
-        <div class="span6">
-            <p class="lead"></p>
         </div>
     </div>
 </div>

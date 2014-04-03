@@ -70,9 +70,9 @@ height: 26px;"');
               <tr>
                 <th class="header">ID</th>
                 <th class="yellow header headerSortDown">Date</th>
-                <th class="green header">Earliest Start Time</th>
+                <th class="green header">Time</th>
                 <th class="red header">Driver Name</th>
-                <th class="red header">Vehicle Registration</th>
+                <th class="red header">Vehicle ID</th>
                 <th class="red header">Description</th>
                 <th class="red header">Status</th>
                 <th class="red header">Actions</th>
@@ -85,30 +85,30 @@ height: 26px;"');
               {
                   switch($row['status_id']) {
                       case 1:
-                          $the_class = 'label-inverse';
+                          $the_class = 'booked';
                           break;
                       case 2:
-                          $the_class = 'label-info';
+                          $the_class = 'in-progress';
                           break;
                       case 3:
-                          $the_class = 'label-important';
+                          $the_class = 'cancelled';
                           break;
                       case 4:
-                          $the_class = 'label-warning';
+                          $the_class = 'expired';
                           break;
                       case 5:
-                          $the_class = 'label-success';
+                          $the_class = 'success';
                           break;
                   }
-                echo '<tr>';
+                echo '<tr class="'.$the_class.'">';
                 echo '<td>'.$row['delivery_id'].'</td>';
                   $date = DateTime::createFromFormat('Y-m-d', $row['date_stamp']);
                 echo '<td>'.$date->format('F j, Y').'</td>';
                 echo '<td>'.$row['time_stamp'].'</td>';
                 echo '<td>' . $row['driver_first_name'] . ' ' . $row['driver_last_name'] . '</td>';
-                echo '<td>'.$row['vehicle_registration'].'</td>';
+                echo '<td>'.$row['vehicle_id'].'</td>';
                 echo '<td>'.$row['description'].'</td>';
-                echo '<td><span class="label '.$the_class.'">'.$row['status_name'].'</span></td>';
+                echo '<td>'.$row['status_name'].'</td>';
 //                echo '<td>'.$row['facility_id'].'</td>';
                 echo '<td class="crud-actions">
                 <span>

@@ -175,7 +175,11 @@ class Admin_facilities extends CI_Controller {
 
             //form validation
             $this->form_validation->set_rules('facility_name', 'Name', 'required');
+            $this->form_validation->set_rules('facility_address1', 'House Number', 'required');
+            $this->form_validation->set_rules('facility_address2', 'Street', 'required');
+            $this->form_validation->set_rules('facility_locality', 'Town/City', 'required');
             $this->form_validation->set_rules('facility_postcode', 'Postcode', 'required|callback_check_postcode');
+
             $this->form_validation->set_rules('facility_max_capacity', 'Max Capacity', 'required|numeric');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             
