@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DMS</title>
     <!-- css stylesheets -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/frontend/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- modal box -->
@@ -49,9 +49,9 @@
         </div>
         <div class="collapse navbar-collapse" id="b-menu-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo site_url('register');?>">Register</a></li>
-            <li><a href="<?php echo site_url('login');?>">Login</a></li>
-            <li><a href="<?php echo site_url('contact');?>">Contact Us</a></li>
+            <li><a href="<?php echo base_url(); ?>register">Register</a></li>
+            <li><a href="<?php echo base_url(); ?>login">Login</a></li>
+            <li><a href="<?php echo base_url(); ?>contact">Contact Us</a></li>
           </ul>
         </div> <!-- /.nav-collapse -->
       </div> <!-- /.container -->
@@ -104,6 +104,6 @@
      </div>
      <!-- add javascripts -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>

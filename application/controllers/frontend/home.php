@@ -17,7 +17,7 @@ public function index()
 		
 		public function main(){
 		
-			$this->load->view('view_index');
+			$this->load->view('frontend/view_index');
 		
 		}
 		

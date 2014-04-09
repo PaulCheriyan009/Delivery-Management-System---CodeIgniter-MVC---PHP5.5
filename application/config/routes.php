@@ -91,5 +91,12 @@ $route['admin/suppliers/delete/(:num)'] = 'admin_suppliers/delete/$1';
 $route['admin/dashboard'] = 'admin_dashboard/index';
 $route['admin/dashboard/get_delivery_count_by_date_range/(:any)/(:any)'] = 'admin_dashboard/get_delivery_count_by_date_range/$1/$2';
 
+
+/* lukes routes */
+
+$route['booking'] = 'frontend/home';
+$route['booking/register'] = 'frontend/register';
+$route['booking/home'] = 'frontend/home';
+$route['booking/login'] = 'frontend/login';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

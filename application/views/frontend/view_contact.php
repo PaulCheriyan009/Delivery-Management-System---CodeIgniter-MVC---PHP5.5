@@ -45,12 +45,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo site_url('home');?>">DMS Distribution</a>
+          <a class="navbar-brand" href="<?php echo base_url();?>booking">DMS Distribution</a>
         </div>
         <div class="collapse navbar-collapse" id="b-menu-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo site_url('register');?>">Register</a></li>
-            <li><a href="<?php echo site_url('login');?>">Login</a></li>
+            <li><a href="<?php echo base_url(); ?>register">Register</a></li>
+            <li><a href="<?php echo base_url(); ?>login">Login</a></li>
             <li><a href="">Contact Us</a></li>
           </ul>
         </div> <!-- /.nav-collapse -->
