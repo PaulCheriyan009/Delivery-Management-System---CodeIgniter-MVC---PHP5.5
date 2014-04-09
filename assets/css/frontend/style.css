@@ -1,0 +1,30 @@
+﻿
+/* customized carousel */
+
+
+.container1{ 
+			height:100%;
+			margin:0;
+ }
+
+ 
+.carousel {
+    height: 600px;
+    margin-bottom: 50px;
+}
+.carousel-caption {
+    z-index: 10;
+	position: relative; margin-top:300px;  margin-right:450px;
+}
+.carousel .item {
+    background-color: #404040;
+    height: 800px;
+}
+
+.footer {
+		position: fixed; bottom: 0; margin-top:80px; 
+		color:#E0E0E0; 
+		background-color: #202020; width:5000px; 
+		
+}
+
