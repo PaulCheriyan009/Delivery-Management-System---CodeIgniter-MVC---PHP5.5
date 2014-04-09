@@ -39,7 +39,7 @@
             echo form_open('admin/facilities', $attributes);
      
               echo form_label('Search:', 'search_string');
-              echo form_input('search_string', $search_string_selected);
+              echo form_input('search_string', $search_string_selected, 'placeholder="Search by facility name"');
 
               echo form_label('Order by:', 'order');
               echo form_dropdown('order', $options_facilities, $order, 'class="span2"');
@@ -61,6 +61,12 @@
               <tr>
                 <th class="header">ID</th>
                 <th class="yellow header headerSortDown">Name</th>
+                <th class="yellow header headerSortDown">Address</th>
+                  <th class="yellow header headerSortDown">Town/City</th>
+                <th class="yellow header headerSortDown">County</th>
+                  <th class="yellow header headerSortDown">Country</th>
+                <th class="yellow header headerSortDown">Postcode</th>
+                <th class="yellow header headerSortDown">Capacity</th>
               </tr>
             </thead>
             <tbody>
@@ -70,6 +76,12 @@
                 echo '<tr>';
                 echo '<td>'.$row['facility_id'].'</td>';
                 echo '<td>'.$row['facility_name'].'</td>';
+                echo '<td>'.$row['facility_address1'].' '.$row['facility_address2'].'</td>';
+                  echo '<td>'.$row['facility_locality'].'</td>';
+                echo '<td>'.$row['facility_county'].'</td>';
+                echo '<td>'.$row['facility_country'].'</td>';
+                  echo '<td>'.$row['facility_postcode'].'</td>';
+                echo '<td>'.$row['facility_max_capacity'].'</td>';
                 echo '<td class="crud-actions">
                   <a href="'.site_url("admin").'/facilities/update/'.$row['facility_id'].'" class="btn btn-info">view & edit</a>
                   <a href="'.site_url("admin").'/facilities/delete/'.$row['facility_id'].'" class="btn btn-danger">delete</a>

@@ -55,7 +55,7 @@
                 ?>
 
             </div>
-
+            <div class="alert alert-danger">If you want a delete a supplier, bear in mind that any vehicles linked to the supplier will also be <strong>automatically deleted</strong>, and in turn any deliveries linked to the vehicle will also be deleted.</div>
             <table class="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
@@ -71,11 +71,12 @@
                     echo '<tr>';
                     echo '<td>'.$row['company_id'].'</td>';
                     echo '<td>'.$row['company_name'].'</td>';
-                    echo '<td><p>'.$row['company_address1'].'</p><p>'.$row['company_address2'].'</p><p>'.$row['company_address3'].'</p><p>'.$row['company_locality'].'</p><p>'.strtoupper($row['company_postcode']).'</td>';
+                    echo '<td><p>'.$row['company_address1'].'</p><p>'.$row['company_address2'].'</p><p>'.$row['company_locality'].'</p><p>'.$row['company_county'].'</p><p>'.$row['company_country'].'</p><p>'.strtoupper($row['company_postcode']).'</td>';
                     echo '<td class="crud-actions">
                   <span>
                   <a href="'.site_url("admin").'/suppliers/update/'.$row['company_id'].'" class="btn btn-info">view & edit</a>
-                  <a href="'.site_url("admin").'/suppliers/delete/'.$row['company_id'].'" class="btn btn-danger">delete</a>
+
+                  <a onclick="return confirm(\'Are you sure? Deleting this supplier will also remove all of its associated vehicles and deliveries!\')" href="'.site_url("admin").'/suppliers/delete/'.$row['company_id'].'" class="btn btn-danger">delete</a>
                   </span>
                   <div class="btn-group full-width">
                       <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">

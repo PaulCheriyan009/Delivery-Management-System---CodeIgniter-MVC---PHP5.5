@@ -10,7 +10,7 @@ class Admin_deliveries extends CI_Controller {
         parent::__construct();
         $this->load->model('deliveries_model');
         $this->load->model('facilities_model');
-
+        $this->load->model('drivers_model');
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
         }
@@ -23,7 +23,7 @@ class Admin_deliveries extends CI_Controller {
     public function index()
     {
         // enable sql profiler
-        $this->output->enable_profiler(TRUE);
+//        $this->output->enable_profiler(TRUE);
         //all the posts sent by the view
         $facility_id = $this->input->post('facility_id');
         $search_string = $this->input->post('search_string');        
@@ -164,7 +164,7 @@ class Admin_deliveries extends CI_Controller {
     }//index
 
 
-    public function add_facility($delivery_id=null, $facility_id=null) {
+    public function add_facility($delivery_id=null, $facility_id=null, $start_time = null, $end_time = null) {
 //        $this->output->enable_profiler(TRUE);
         if($this->uri->segment(5) === FALSE) {
             // display form
@@ -174,19 +174,24 @@ class Admin_deliveries extends CI_Controller {
             $data['delivery_info'] = $this->deliveries_model->get_delivery_with_facility($delivery_id);
             $data['delivery_id'] = $delivery_id;
             $data['main_content'] = 'admin/deliveries/add_facility';
-            $this->load->view('includes/ajax', $data);
+            $this->load->view('includes/template', $data);
         } else {
             // do logic relating to insert
             if ($this->input->server('REQUEST_METHOD') === 'POST') {
                     $data_to_store = array(
                         'delivery_id' => $this->uri->segment(4),
-                        'facility_id' => $this->uri->segment(5)
+                        'facility_id' => $this->uri->segment(5),
+                        'authorization_start_time' => $this->uri->segment(6),
+                        'authorization_end_time' => $this->uri->segment(7)
                     );
                     if($this->deliveries_model->add_facility_to_existing_delivery($data_to_store)){
                         $data['flash_message'] = TRUE;
                         $data['returned_results'] = $this->deliveries_model->get_delivery_with_facility($this->uri->segment(4));
-                        $data['main_content'] = 'admin/deliveries/list/'.$this->uri->segment(4).'/'.$this->uri->segment(5);
-                        $this->load->view('includes/ajax',$data, true);
+//                        $data['main_content'] = 'admin/deliveries/list/'.$this->uri->segment(4).'/'.$this->uri->segment(5);
+//                        $this->load->view('includes/ajax',$data, true);
+                        $this->output
+                            ->set_content_type('application/json')
+                            ->set_output(json_encode($data['returned_results']));
                     }else{
                         $data['flash_message'] = FALSE;
                     }
@@ -265,7 +270,8 @@ class Admin_deliveries extends CI_Controller {
                     'driver_id' => $this->input->post('driver_id'),
                     'vehicle_id' => $this->input->post('vehicle_id'),
                     'status_id' => $this->input->post('status_id'),
-                    'driver_id' => $this->input->post('driver_id')
+                    'driver_id' => $this->input->post('driver_id'),
+                    'description' => $this->input->post('description')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->deliveries_model->store_deliveries($data_to_store)){
@@ -277,6 +283,7 @@ class Admin_deliveries extends CI_Controller {
 
         }
         //fetch facilities data to populate the select field
+        $data['drivers'] = $this->drivers_model->get_drivers();
         $data['status'] = $this->deliveries_model->get_all_delivery_statuses();
         $data['facility'] = $this->facilities_model->get_facilities();
         //load the view
@@ -291,7 +298,7 @@ class Admin_deliveries extends CI_Controller {
     */
     public function update()
     {
-        $this->output->enable_profiler(TRUE);
+//        $this->output->enable_profiler(TRUE);
         //deliveryid
         $id = $this->uri->segment(4);
   
@@ -315,7 +322,8 @@ class Admin_deliveries extends CI_Controller {
                     'description' => $this->input->post('description'),
                     'date_stamp' => $db_date->format('Y-m-d'),
                     'time_stamp' => $this->input->post('time_stamp'),
-                    'vehicle_id' => $this->input->post('vehicle_id'),
+                    'vehicle_id' => $_POST['vehicle_id'],
+                    'status_id' => $this->input->post('status_id'),
                     'driver_id' => $this->input->post('driver_id')
                 );
                 //if the insert has returned true then we show the flash message
@@ -334,6 +342,7 @@ class Admin_deliveries extends CI_Controller {
         //the code below wel reload the current data
 
         //delivery data
+        $data['drivers'] = $this->drivers_model->get_drivers();
         $data['status'] = $this->deliveries_model->get_all_delivery_statuses();
         $data['delivery'] = $this->deliveries_model->get_delivery_by_id($id);
         //fetch facility data to populate the select field

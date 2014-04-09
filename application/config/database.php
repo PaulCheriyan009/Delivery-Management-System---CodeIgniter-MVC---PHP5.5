@@ -57,7 +57,7 @@ $active_group = $env_used;
 // end unit tests config
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1';
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
 $db['default']['database'] = 'main_dms';
@@ -79,7 +79,7 @@ $db['default']['stricton'] = FALSE;
 
 //$db['default']['hostname'] = '127.0.0.1';
 //$db['default']['username'] = 'root';
-//$db['default']['password'] = 'root';
+//$db['default']['password'] = '';
 //$db['default']['database'] = 'dms';
 //
 //$db['default']['dbdriver'] = 'mysql';

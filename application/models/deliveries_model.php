@@ -32,14 +32,53 @@ class Deliveries_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_delivery_counts_day_view($start_date,$end_date) {
+        $this->db->select('COUNT(deliveries.delivery_id) as Quantity');
+        $this->db->select('date_stamp as Date');
+        $this->db->from('deliveries');
+        $this->db->where('deliveries.date_stamp >=', $start_date);
+        $this->db->where('deliveries.date_stamp <=', $end_date);
+        $this->db->group_by('deliveries.date_stamp');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function get_delivery_by_id($id)
     {
 		$this->db->select('*');
 		$this->db->from('deliveries');
 		$this->db->where('deliveries.delivery_id', $id);
+        $this->db->join('drivers','deliveries.driver_id = drivers.driver_id','left');
         $this->db->join('vehicles','deliveries.vehicle_id = vehicles.vehicle_id','inner');
 		$query = $this->db->get();
 		return $query->result_array();
+    }
+    public function get_deliveries_by_status($status_id) {
+        $this->db->select('*');
+        $this->db->from('deliveries');
+        $this->db->where('deliveries.status_id',$status_id);
+        $this->db->join('delivery_statuses','deliveries.status_id = delivery_statuses.status_id');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function get_deliveries_by_status_count($status_id) {
+        $this->db->select('*');
+        $this->db->from('deliveries');
+        $this->db->where('deliveries.status_id',$status_id);
+        $this->db->join('delivery_statuses','deliveries.status_id = delivery_statuses.status_id');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+    public function get_most_recent_facility_for_delivery($id) {
+        $this->db->select('*');
+        $this->db->from('deliveries');
+        $this->db->where('deliveries.delivery_id', $id);
+        $this->db->join('delivery_facility_link','deliveries.delivery_id = delivery_facility_link.delivery_id','inner');
+        $this->db->join('facilities','delivery_facility_link.facility_id = facilities.facility_id','inner');
+        $this->db->order_by('delivery_facility_link.id','desc');
+        $this->db->group_by('delivery_facility_link.facility_id');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result_array();
     }
     public function get_delivery_with_facility($id) {
         $this->db->select('*');
@@ -47,6 +86,9 @@ class Deliveries_model extends CI_Model {
         $this->db->where('deliveries.delivery_id', $id);
         $this->db->join('delivery_facility_link','deliveries.delivery_id = delivery_facility_link.delivery_id','inner');
         $this->db->join('facilities','delivery_facility_link.facility_id = facilities.facility_id','inner');
+        $this->db->order_by('delivery_facility_link.id','asc');
+        $this->db->group_by('delivery_facility_link.facility_id');
+
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -135,6 +177,7 @@ class Deliveries_model extends CI_Model {
 		}else{
 		    $this->db->order_by('deliveries.delivery_id', 'Asc');
 		}
+        $this->db->group_by('deliveries.delivery_id');
 		$query = $this->db->get();
 		return $query->num_rows();        
     }

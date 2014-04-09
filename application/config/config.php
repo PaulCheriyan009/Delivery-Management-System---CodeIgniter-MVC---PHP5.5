@@ -304,7 +304,7 @@ $config['csrf_expire'] = 7200;
 |--------------------------------------------------------------------------
 |
 | Enables Gzip output compression for faster page loads.  When enabled,
-| the output class will test whether your server supports Gzip.
+| the output class will test whether your server suppori ts Gzip.
 | Even if it does, however, not all browsers support compression
 | so enable only if you are reasonably sure your visitors can handle it.
 |

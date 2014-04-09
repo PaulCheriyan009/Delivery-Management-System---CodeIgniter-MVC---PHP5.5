@@ -35,7 +35,7 @@ class Admin_facilities extends CI_Controller {
         $order_type = $this->input->post('order_type'); 
 
         //pagination settings
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
 
         $config['base_url'] = base_url().'admin/facilities';
         $config['use_page_numbers'] = TRUE;
@@ -109,8 +109,8 @@ class Admin_facilities extends CI_Controller {
             }
             
             //fetch sql data into arrays
-            $data['count_deliveries']= $this->facilities_model->count_facilities($search_string, $order);
-            $config['total_rows'] = $data['count_deliveries'];
+            $data['count_facilities']= $this->facilities_model->count_facilities($search_string, $order);
+            $config['total_rows'] = $data['count_facilities'];
 
             //fetch sql data into arrays
             if($search_string){
@@ -141,9 +141,9 @@ class Admin_facilities extends CI_Controller {
             $data['order'] = 'id';
 
             //fetch sql data into arrays
-            $data['count_deliveries']= $this->facilities_model->count_facilities();
+            $data['count_facilities']= $this->facilities_model->count_facilities();
             $data['facilities'] = $this->facilities_model->get_facilities('', '', $order_type, $config['per_page'],$limit_end);
-            $config['total_rows'] = $data['count_deliveries'];
+            $config['total_rows'] = $data['count_facilities'];
 
         }//!isset($search_string) && !isset($order)
          
@@ -178,7 +178,9 @@ class Admin_facilities extends CI_Controller {
             $this->form_validation->set_rules('facility_address1', 'House Number', 'required');
             $this->form_validation->set_rules('facility_address2', 'Street', 'required');
             $this->form_validation->set_rules('facility_locality', 'Town/City', 'required');
-            $this->form_validation->set_rules('facility_postcode', 'Postcode', 'required|callback_check_postcode');
+            $this->form_validation->set_rules('facility_county', 'County', 'required');
+            $this->form_validation->set_rules('facility_country', 'Country', 'required');
+            $this->form_validation->set_rules('facility_postcode', 'Postcode', 'required');
 
             $this->form_validation->set_rules('facility_max_capacity', 'Max Capacity', 'required|numeric');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
@@ -189,6 +191,13 @@ class Admin_facilities extends CI_Controller {
             {
                 $data_to_store = array(
                     'facility_name' => $this->input->post('facility_name'),
+                    'facility_address1' => $this->input->post('facility_address1'),
+                    'facility_address2' => $this->input->post('facility_address2'),
+                    'facility_locality' => $this->input->post('facility_locality'),
+                    'facility_county' => $this->input->post('facility_county'),
+                    'facility_country' => $this->input->post('facility_country'),
+                    'facility_postcode' => $this->input->post('facility_postcode'),
+                    'facility_max_capacity' => $this->input->post('facility_max_capacity')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->facilities_model->store_facility($data_to_store)){
@@ -197,6 +206,9 @@ class Admin_facilities extends CI_Controller {
                     $data['flash_message'] = FALSE; 
                 }
 
+            } else {
+                // take off hidden fields class
+//                $this->jquery->show('div.hidden-slide-down');
             }
 
         }
@@ -219,6 +231,13 @@ class Admin_facilities extends CI_Controller {
         {
             //form validation
             $this->form_validation->set_rules('facility_name', 'Name', 'required');
+            $this->form_validation->set_rules('facility_address1', 'House Number', 'required');
+            $this->form_validation->set_rules('facility_address2', 'Street', 'required');
+            $this->form_validation->set_rules('facility_locality', 'Town/City', 'required');
+            $this->form_validation->set_rules('facility_county', 'County', 'required');
+            $this->form_validation->set_rules('facility_country', 'Country', 'required');
+            $this->form_validation->set_rules('facility_postcode', 'Postcode', 'required');
+            $this->form_validation->set_rules('facility_max_capacity', 'Max Capacity', 'required|numeric');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             //if the form has passed through the validation
             if ($this->form_validation->run())
@@ -226,6 +245,13 @@ class Admin_facilities extends CI_Controller {
     
                 $data_to_store = array(
                     'facility_name' => $this->input->post('facility_name'),
+                    'facility_address1' => $this->input->post('facility_address1'),
+                    'facility_address2' => $this->input->post('facility_address2'),
+                    'facility_locality' => $this->input->post('facility_locality'),
+                    'facility_county' => $this->input->post('facility_county'),
+                    'facility_country' => $this->input->post('facility_country'),
+                    'facility_postcode' => $this->input->post('facility_postcode'),
+                    'facility_max_capacity' => $this->input->post('facility_max_capacity')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->facilities_model->update_facility($id, $data_to_store) == TRUE){
@@ -259,7 +285,7 @@ class Admin_facilities extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
-        $this->manufacturers_model->delete_facility($id);
+        $this->facilities_model->delete_facility($id);
         redirect('admin/facilities');
     }//edit
 

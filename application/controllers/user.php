@@ -47,7 +47,7 @@ class User extends CI_Controller {
 			$this->session->set_userdata($data);
 
             // default view redirect
-			redirect('admin/deliveries');
+			redirect('admin/dashboard');
 		}
 		else // incorrect username or password
 		{

@@ -44,7 +44,7 @@
             echo form_open('admin/deliveries', $attributes);
      
               echo form_label('Search:', 'search_string');
-              echo form_input('search_string', $search_string_selected, 'style="width: 170px;
+              echo form_input('search_string', $search_string_selected, 'placeholder="Search by description" style="width: 170px;
 height: 26px;"');
 
               echo form_label('Filter by facility:', 'facility_id');
@@ -70,9 +70,10 @@ height: 26px;"');
               <tr>
                 <th class="header">ID</th>
                 <th class="yellow header headerSortDown">Date</th>
-                <th class="green header">Time</th>
+                <th class="green header">Earliest Start Time</th>
                 <th class="red header">Driver Name</th>
-                <th class="red header">Vehicle ID</th>
+                <th class="red header">Driver ID</th>
+                <th class="red header">Vehicle Registration</th>
                 <th class="red header">Description</th>
                 <th class="red header">Status</th>
                 <th class="red header">Actions</th>
@@ -85,30 +86,32 @@ height: 26px;"');
               {
                   switch($row['status_id']) {
                       case 1:
-                          $the_class = 'booked';
+                          $the_class = 'label-inverse';
                           break;
                       case 2:
-                          $the_class = 'in-progress';
+                          $the_class = 'label-info';
                           break;
                       case 3:
-                          $the_class = 'cancelled';
+                          $the_class = 'label-important';
                           break;
                       case 4:
-                          $the_class = 'expired';
+                          $the_class = 'label-warning';
                           break;
                       case 5:
-                          $the_class = 'success';
+                          $the_class = 'label-success';
                           break;
                   }
-                echo '<tr class="'.$the_class.'">';
+                echo '<tr>';
                 echo '<td>'.$row['delivery_id'].'</td>';
                   $date = DateTime::createFromFormat('Y-m-d', $row['date_stamp']);
+                  $time = DateTime::createFromFormat('H:i:s',$row['time_stamp']);
                 echo '<td>'.$date->format('F j, Y').'</td>';
-                echo '<td>'.$row['time_stamp'].'</td>';
+                echo '<td>'.$time->format('H:i').'</td>';
                 echo '<td>' . $row['driver_first_name'] . ' ' . $row['driver_last_name'] . '</td>';
-                echo '<td>'.$row['vehicle_id'].'</td>';
+                echo '<td>'.$row['driver_id'].'</td>';
+                echo '<td>'.$row['vehicle_registration'].'</td>';
                 echo '<td>'.$row['description'].'</td>';
-                echo '<td>'.$row['status_name'].'</td>';
+                echo '<td><span class="label '.$the_class.'">'.$row['status_name'].'</span></td>';
 //                echo '<td>'.$row['facility_id'].'</td>';
                 echo '<td class="crud-actions">
                 <span>

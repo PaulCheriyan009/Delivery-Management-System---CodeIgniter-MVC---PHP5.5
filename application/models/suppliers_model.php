@@ -62,4 +62,13 @@ class Suppliers_model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+    function delete_supplier($id){
+        //delete all records where supplier id is equal to in deliveries table
+//        $this->db->where('vehicle_id', $id);
+//        $this->db->delete('deliveries');
+        $this->db->where('company_id', $id);
+        $this->db->delete('vehicles');
+        $this->db->where('company_id', $id);
+        $this->db->delete('supplier_companies');
+    }
 } 

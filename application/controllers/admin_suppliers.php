@@ -154,4 +154,11 @@ class Admin_suppliers extends CI_Controller {
         $this->load->view('includes/template', $data);
 
     }//index
+    public function delete()
+    {
+        //delivery id
+        $id = $this->uri->segment(4);
+        $this->suppliers_model->delete_supplier($id);
+        redirect('admin/suppliers');
+    }//edit
 }

@@ -58,21 +58,18 @@
       {
           $options_facility[$row['facility_id']] = $row['facility_name'];
       }
-
+      $options_drivers = array('' => "Select");
+      foreach ($drivers as $row)
+      {
+          $options_drivers[$row['driver_id']] = $row['driver_first_name'].' '.$row['driver_last_name'];
+      }
       //form validation
       echo validation_errors();
 
       echo form_open('admin/deliveries/update/'.$this->uri->segment(4).'', $attributes);
       ?>
         <fieldset>
-            <div class="control-group">
-                <label for="inputError" class="control-label">Description</label>
-                <div class="controls">
 
-                    <input type="text" id="" name="description" value="<?php echo $delivery[0]['description'] ?>" >
-                    <!--<span class="help-inline">Woohoo!</span>-->
-                </div>
-            </div>
             <div class="control-group">
                 <label for="inputError" class="control-label">Date</label>
                 <div class="controls">
@@ -84,7 +81,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label for="inputError" class="control-label">Time</label>
+                <label for="inputError" class="control-label">Earliest Start Time</label>
                 <div class="controls">
                     <?php
                     $time = DateTime::createFromFormat("G:i:s", $delivery[0]['time_stamp']);
@@ -97,7 +94,7 @@
                 <label for="inputError" class="control-label">Vehicle Registration</label>
                 <div class="controls">
                     <input type="text" id="vehicle_registration" name="vehicle_registration" value="<?php echo $delivery[0]['vehicle_registration'] ?>">
-                    <input type="hidden" id="vehicle_id" name="vehicle_id" value="<?php echo $delivery[0]['vehicle_registration'] ?>"/>
+                    <input type="hidden" id="vehicle_id" name="vehicle_id" value="<?php echo $delivery[0]['vehicle_id'] ?>"/>
                     <p class="form-message">Please begin typing your vehicle's registration and you will be provided with results to best match your vehicle</p>
                     <!--<span class="help-inline">OOps</span>-->
                 </div>
@@ -113,10 +110,21 @@
             </div>
             <!-- driver id -->
             <div class="control-group">
-                <label for="inputError" class="control-label">Driver ID</label>
+                <label for="inputError" class="control-label">Driver</label>
                 <div class="controls">
-                    <input type="text" name="driver_id" value="<?php echo $delivery[0]['driver_id'] ?>">
+                    <?php
+                    echo form_dropdown('driver_id', $options_drivers,$delivery[0]['driver_id'], 'class="span2"');
+                    ?>
                     <!--<span class="help-inline">OOps</span>-->
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Description</label>
+                <div class="controls">
+
+                    <input type="text" id="" name="description" value="<?php echo $delivery[0]['description'] ?>" >
+                    <!--<span class="help-inline">Woohoo!</span>-->
                 </div>
             </div>
             <div class="control-group">

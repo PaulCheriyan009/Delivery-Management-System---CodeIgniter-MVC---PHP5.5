@@ -39,7 +39,6 @@
 */
 $route['default_controller'] = 'user/index';
 $route['404_override'] = '';
-
 /*user/settings*/
 $route['admin'] = 'user/index';
 $route['admin/signup'] = 'user/signup';
@@ -62,6 +61,7 @@ $route['admin/deliveries/delete/(:any)'] = 'admin_deliveries/delete/$1';
 $route['admin/deliveries/add_facility'] = 'admin_deliveries/add_facility';
 $route['admin/deliveries/add_facility/(:num)'] = 'admin_deliveries/add_facility/$1';
 $route['admin/deliveries/add_facility/(:num)/(:num)'] = 'admin_deliveries/add_facility/$1/$2';
+$route['admin/deliveries/add_facility/(:num)/(:num)/(:any)/(:any)'] = 'admin_deliveries/add_facility/$1/$2/$3/$4';
 // delete facilities from delivery
 $route['admin/deliveries/delete_facility/(:any)'] = 'admin_deliveries/delete_facility/$1';
 // put index pg pagination routing last otherwise stuff will f up.
@@ -77,14 +77,19 @@ $route['admin/facilities/(:any)'] = 'admin_facilities/index/$1'; //$1 = page num
 
 // drivers
 $route['admin/drivers'] = 'admin_drivers/index';
+
 // vehicle search
+$route['admin/vehicles'] = 'admin_vehicles/index';
 $route['admin/vehicles/get_vehicle_by_registration'] = 'admin_vehicles/get_vehicle_by_registration/$1';
 $route['admin/vehicles/get_vehicle_by_registration/(:any)'] = 'admin_vehicles/get_vehicle_by_registration/$1';
+
+
 /* supplier routes */
 $route['admin/suppliers'] = 'admin_suppliers/index';
+$route['admin/suppliers/delete/(:num)'] = 'admin_suppliers/delete/$1';
 /* dashboard */
 $route['admin/dashboard'] = 'admin_dashboard/index';
-
+$route['admin/dashboard/get_delivery_count_by_date_range/(:any)/(:any)'] = 'admin_dashboard/get_delivery_count_by_date_range/$1/$2';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
