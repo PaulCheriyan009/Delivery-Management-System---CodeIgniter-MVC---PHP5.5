@@ -114,7 +114,7 @@ label{
 } 
 
 form label:first-child{
-  margin: 0 20px 0 12px;
+  margin: 0 20px 5px 12px;
 } 
 
 .container.login{margin-top: 60px;}
@@ -294,4 +294,9 @@ div.splash-help {
     background-image:url('../../img/admin/help.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+.multipageWrapper {
+    margin-left: 15%;
+    margin-right: 15%;
+    width:70%;
 }

@@ -62,7 +62,9 @@ class User extends CI_Controller {
     */
 	function signup()
 	{
-		$this->load->view('admin/signup_form');
+        $this->load->model('Users_model');
+        $data['membership_types'] = $this->Users_model->get_all_membership_types();
+		$this->load->view('admin/signup_form', $data);
 	}
 
 
@@ -77,7 +79,7 @@ class User extends CI_Controller {
 		// field name, error message, validation rules
 		$this->form_validation->set_rules('first_name', 'Name', 'trim|required');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
-		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
+		$this->form_validation->set_rules('email_addres', 'Email Address', 'trim|required|valid_email');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');

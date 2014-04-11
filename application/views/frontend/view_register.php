@@ -18,13 +18,13 @@
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Date of Birth</label>
-                    <input type="text" class="form-control" name="driver_date_of_birth" placeholder="email">
+                    <input type="text" class="form-control datepicker" name="driver_date_of_birth" placeholder="Date of Birth">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="email">
+                    <input type="email" class="form-control" name="email" placeholder="Email Address">
                 </div>
             </div>
             <div class="form-group">
@@ -36,13 +36,13 @@
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="username">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
             </div>
             <div class="form-group">

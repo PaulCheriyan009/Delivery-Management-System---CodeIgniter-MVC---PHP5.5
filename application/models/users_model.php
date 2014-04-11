@@ -38,9 +38,19 @@ class Users_model extends CI_Model {
 		}
 		return $user;
 	}
-	
+	function create_driver_member() {
+        $this->db->where('user_name', $this->input->post('username'));
+        $query = $this->db->get('membership');
+        if($query->num_rows > 0){
+            echo '<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>';
+            echo "Username already taken";
+            echo '</strong></div>';
+        } else {
+            // first insert into membership table
+        }
+    }
     /**
-    * Store the new user's data into the database
+    * Store the new user's data into the database - THIS IS FOR ADMIN
     * @return boolean - check the insert
     */	
 	function create_member()
@@ -60,14 +70,21 @@ class Users_model extends CI_Model {
 				'last_name' => $this->input->post('last_name'),
 				'email_addres' => $this->input->post('email_address'),			
 				'user_name' => $this->input->post('username'),
-				'pass_word' => md5($this->input->post('password'))						
+				'pass_word' => md5($this->input->post('password')),
+                'membership_type_id' => $this->input->post('membership_type_id')
 			);
 			$insert = $this->db->insert('membership', $new_member_insert_data);
 		    return $insert;
 		}
 	      
 	}//create_member
-
+    function get_all_membership_types() {
+        $this->db->select('*');
+        $this->db->from('membership_types');
+        $this->db->where('membership_type_id != 4');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     function get_membership_type($user_id) {
         $this->db->select('membership_types.membership_type_id');
         $this->db->select('membership_types.membership_type_name');
