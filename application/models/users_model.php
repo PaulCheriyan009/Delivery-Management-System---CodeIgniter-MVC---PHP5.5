@@ -67,5 +67,15 @@ class Users_model extends CI_Model {
 		}
 	      
 	}//create_member
+
+    function get_membership_type($user_id) {
+        $this->db->select('membership_types.membership_type_id');
+        $this->db->select('membership_types.membership_type_name');
+        $this->db->from('membership');
+        $this->db->where('id',$user_id);
+        $this->db->join('membership_types', 'membership.membership_type_id = membership_types.membership_type_id', 'inner');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 

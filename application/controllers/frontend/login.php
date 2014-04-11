@@ -27,10 +27,12 @@ public function login()
 						'is_logged_in'=> 1
 					);
 					$this->session->set_userdata($data);
-					$this->load->view('view_userpage');
+                    $data['main_content'] = 'frontend/view_userpage';
+                    $this->load->view('includes/frontend_template', $data);
     
 			} else{
-					$this->load->view('view_login');
+                    $data['main_content'] = 'frontend/view_login';
+                    $this->load->view('includes/frontend_template', $data);;
 
 				  }
 		}
@@ -38,12 +40,16 @@ public function login()
 		public function userpage(){
 		
 			if ($this->session->userdata('is_logged_in')){
-				$this->load->view('view_userpage');
-			}else{redirect('login/loginAgain');}
+                $data['main_content'] = 'frontend/view_userpage';
+                $this->load->view('includes/frontend_template', $data);
+			} else {
+                redirect('login/loginAgain');
+            }
 		}
 		
 		public function loginAgain(){
-			$this->load->view('view_login');
+            $data['main_content'] = 'frontend/view_login';
+            $this->load->view('includes/frontend_template', $data);
 		}
 		
 		

@@ -16,6 +16,7 @@ public function index()
 
 public function contact()
 		{
-			$this->load->view('view_contact');
+            $data['main_content'] = 'frontend/view_contact';
+            $this->load->view('includes/frontend_template', $data);
 		}
 }

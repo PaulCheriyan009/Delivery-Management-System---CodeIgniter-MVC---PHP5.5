@@ -51,7 +51,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> Settings <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url(); ?>admin/changepermission">Change User Permissions</a></li>
+                <li><a href="<?php echo base_url(); ?>frontend/home">Go to booking site</a></li>
 	            <li>
 	              <a href="<?php echo base_url(); ?>admin/logout">Logout</a>
 	            </li>

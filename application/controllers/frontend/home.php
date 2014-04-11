@@ -16,8 +16,8 @@ public function index()
 		
 		
 		public function main(){
-		
-			$this->load->view('frontend/view_index');
+            $data['main_content'] = 'frontend/view_index';
+            $this->load->view('includes/frontend_template', $data);
 		
 		}
 		

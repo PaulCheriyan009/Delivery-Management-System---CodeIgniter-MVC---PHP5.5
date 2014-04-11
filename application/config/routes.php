@@ -37,7 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['default_controller'] = 'user/index';
+//$route['default_controller'] = 'user/index';
+$route['default_controller'] = 'frontend/home';
 $route['404_override'] = '';
 /*user/settings*/
 $route['admin'] = 'user/index';
@@ -95,8 +96,8 @@ $route['admin/dashboard/get_delivery_count_by_date_range/(:any)/(:any)'] = 'admi
 /* lukes routes */
 
 $route['booking'] = 'frontend/home';
-$route['booking/register'] = 'frontend/register';
-$route['booking/home'] = 'frontend/home';
-$route['booking/login'] = 'frontend/login';
+$route['register'] = 'frontend/register';
+$route['home'] = 'frontend/home';
+$route['login'] = 'frontend/login';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

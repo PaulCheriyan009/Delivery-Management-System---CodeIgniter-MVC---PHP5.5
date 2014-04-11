@@ -1,60 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DMS</title>
-    <!-- css stylesheets -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/frontend/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delivery Management System 2014">
+    <meta name="author" content="Adam Bull, Lukata Binns & Mishrey Almarshoud">
+
+    <title><?php echo $this->config->item('application_name') ?></title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <link href="<?php echo base_url(); ?>assets/css/frontend/style.css" type="text/css" rel="stylesheet"/>
+
 </head>
+
 <body>
-<!-- modal box -->
-<div class="modal fade" id="my-modal-box" tabindex="-1" role="dialog" aria-labelledby="my-modal-box-l" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <div class="modal-title" id="my-modal-box-l">
-                    <h3>Share it</h3>
-                </div>
-            </div><!-- /.modal-header -->
-            <div class="modal-body">
-                <p>Share it box content</p>
-                <!-- AddThis Button BEGIN -->
-                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                    <a class="addthis_button_preferred_1"></a>
-                    <a class="addthis_button_preferred_2"></a>
-                    <a class="addthis_button_preferred_3"></a>
-                    <a class="addthis_button_preferred_4"></a>
-                    <a class="addthis_button_compact"></a>
-                    <a class="addthis_counter addthis_bubble_style"></a>
-                </div>
-            </div><!-- /.modal-body -->
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- fixed navigation bar -->
-<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+
+<nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=" ">DMS Distribution</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">Delivery Management System 2014</a>
         </div>
-        <div class="collapse navbar-collapse" id="b-menu-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo base_url(); ?>register">Register</a></li>
-                <li><a href="<?php echo base_url(); ?>login">Login</a></li>
-                <li><a href="<?php echo base_url(); ?>admin">Admin Log In</a></li>
-<!--                <li><a href="--><?php //echo base_url(); ?><!--contact">Contact Us</a></li>-->
+
+        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                 <li><a href="<?php echo base_url(); ?>register">Register</a></li>
+                 <li><a href="<?php echo base_url(); ?>login">Login</a></li>
+                 <li><a href="<?php echo base_url(); ?>admin">Admin Log In</a></li>
             </ul>
-        </div> <!-- /.nav-collapse -->
-    </div> <!-- /.container -->
-</div> <!-- /.navbar -->
-<div class="container1">
+        </div>
+    </div>
+</nav>

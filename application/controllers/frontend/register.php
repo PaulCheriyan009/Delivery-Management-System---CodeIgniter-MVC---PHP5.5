@@ -27,14 +27,16 @@ public function register()
 			$this->form_validation->set_message('is_unique',"That email address already exist");
 			
 			if ($this->form_validation->run() == false){
-				$this->load->view('view_register');			
+                $data['main_content'] = 'frontend/view_register';
+                $this->load->view('includes/frontend_template', $data);
 			}else {echo "pass".'<br>';
-					$this->load->model('model_users');
+					$this->load->model('users_model');
 					
-					$this->model_users->add_user();
-					
-						
-					 $this->load->view('view_userpage');
+					$this->model_users->create_member();
+
+
+                $data['main_content'] = 'frontend/view_userpage';
+                $this->load->view('includes/frontend_template', $data);
 				  }
 		}
 }	
