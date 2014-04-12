@@ -42,7 +42,8 @@ class User extends CI_Controller {
 		{
 			$data = array(
 				'user_name' => $user_name,
-				'is_logged_in' => true
+				'is_logged_in' => true,
+                'membership_details' => $this->Users_model->get_membership_details_by_user_name($user_name)
 			);
 			$this->session->set_userdata($data);
 
@@ -105,11 +106,6 @@ class User extends CI_Controller {
 		}
 
 	}
-//	function change_user_permission() {
-//        $permission_id = $this->uri->segment(4);
-//        $data['permission_id'] = $permission_id;
-//        $this->load->view('admin/change_permission');
-//    }
 	/**
     * Destroy the session, and logout the user.
     * @return void

@@ -99,5 +99,7 @@ $route['booking'] = 'frontend/home';
 $route['register'] = 'frontend/register';
 $route['home'] = 'frontend/home';
 $route['login'] = 'frontend/login';
+$route['book-timeslot'] = 'frontend/book';
+$route['get-facility-timeslots/(:num)/(:any)'] = 'frontend/book/get_timeslots/$1/$2';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

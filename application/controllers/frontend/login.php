@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 function __construct()
 	 {
 	   parent::__construct();
-
+       $this->load->model('users_model');
 	 }
 	 
 public function index()
@@ -54,9 +54,9 @@ public function login()
 		
 		
 		public function validate_credentials(){
-			$this->load->model('model_users');
+//			$this->load->model('model_users');
 			
-			if ($this->model_users->can_log_in()){
+			if ($this->users_model->can_log_in()){
 				return true;
 			} else {
 					$this->form_validation->set_message('validate_credentials','Incorrect email or password');

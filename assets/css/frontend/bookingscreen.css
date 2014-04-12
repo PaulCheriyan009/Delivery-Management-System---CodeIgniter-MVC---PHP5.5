@@ -1,0 +1,60 @@
+#main {
+    clear:both;
+    width:940px;
+    min-height: 500px;
+    margin:30px auto 0 auto;
+    padding: 0;
+    font-size: 90%;
+}
+div.filter label {
+    font-size:16px;
+    line-height: 2;
+    display: block;
+}
+div.filter input[type="text"] {
+    width:300px;
+    height:50px;
+    border-radius:5px;
+    border:1px solid #eee;
+    outline:none;
+    color:#438DCD;
+    padding:10px;
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
+    font-size: 16px;
+    background-color: #eee;
+    border:1px solid #CCCCCC;
+}
+a.dd-selected:hover,a.dd-option:hover {
+    text-decoration: none;
+}
+div.dd-container:hover, a.dd-selected:hover {
+    cursor: pointer;
+}
+div.results {
+    width:100%;
+    min-height: 300px;
+    height:auto;
+    border:1px solid #eee;
+    margin-bottom: 20px;
+    position: relative;
+}
+div.results div.loading {
+    position: absolute;
+    left:50%;
+    top:50%;
+}
+div.results ul {
+    list-style-type: none;
+    width:760px;
+    overflow:hidden;
+}
+div.results ul li {
+    padding:10px;
+    float:left;
+    display: inline;
+    line-height: 1.5em;
+    border-bottom: 1px solid #eee;
+}
+div.results ul li:last-child {
+    border-bottom: none;
+}

@@ -28,7 +28,6 @@
 	    <div class="container">
 	      <a class="brand" href="<?php echo base_url(); ?>admin/dashboard">Delivery Management System</a>
 	      <ul class="nav">
-<!--              <li class="icon-brand"><a href="--><?php //echo base_url(); ?><!--"><i class="fa fa-truck"></i></a></li>-->
               <li <?php if($this->uri->segment(2) == 'dashboard'){echo 'class="active"';}?>>
                   <a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
               </li>

@@ -94,5 +94,12 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    function get_membership_type_by_user_name($name) {
+        $this->db->select('membership.membership_type_id');
+        $this->db->from('membership');
+        $this->db->where('membership.user_name',$name);
+        $query = $this->db->get();
+        return $query;
+    }
 }
 

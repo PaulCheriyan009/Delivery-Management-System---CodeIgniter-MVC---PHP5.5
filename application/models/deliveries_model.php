@@ -42,6 +42,10 @@ class Deliveries_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_free_delivery_timeslots($facility_id, $date_stamp) {
+       $query = $this->db->query('SELECT t.slot FROM timeslots t LEFT JOIN delivery_facility_link dl ON (t.slot = dl.start_time AND date_stamp = "'.mysql_real_escape_string($date_stamp).'" AND dl.facility_id = '.$facility_id.') WHERE start_time IS NULL');
+       return $query->result();
+    }
     public function get_delivery_by_id($id)
     {
 		$this->db->select('*');
