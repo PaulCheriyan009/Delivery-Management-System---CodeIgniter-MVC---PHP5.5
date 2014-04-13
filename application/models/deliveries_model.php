@@ -72,6 +72,13 @@ class Deliveries_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function get_deliveries_for_driver($driver_id) {
+        $this->db->select('*');
+        $this->db->from('deliveries');
+        $this->db->where('deliveries.driver_id',$driver_id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function get_deliveries_by_status_count($status_id) {
         $this->db->select('*');
         $this->db->from('deliveries');

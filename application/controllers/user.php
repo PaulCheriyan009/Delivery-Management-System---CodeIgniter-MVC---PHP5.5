@@ -42,8 +42,7 @@ class User extends CI_Controller {
 		{
 			$data = array(
 				'user_name' => $user_name,
-				'is_logged_in' => true,
-                'membership_details' => $this->Users_model->get_membership_details_by_user_name($user_name)
+				'is_logged_in' => true
 			);
 			$this->session->set_userdata($data);
 
@@ -56,7 +55,44 @@ class User extends CI_Controller {
 			$this->load->view('admin/login', $data);
 		}
 	}
+    function validate_frontend_credentials()
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
 
+        $this->load->model('Users_model');
+
+        $user_name = $this->input->post('user_name');
+        $password = $this->__encrip_password($this->input->post('password'));
+
+        $is_valid = $this->Users_model->validate_frontend($user_name, $password);
+
+        if($is_valid)
+        {
+            $user_id = $this->Users_model->get_user_id_by_user_name($this->input->post('username'));
+            $driver_id = $this->Users_model->get_driver_id($user_id);
+            $data = array(
+                'is_logged_in' => true,
+                'user_id' => $user_id,
+                'driver_id' => $driver_id
+            );
+            $this->session->set_userdata($data);
+
+            // default view redirect
+            redirect(base_url().'home');
+        }
+        else // incorrect username or password
+        {
+            $data['message_error'] = TRUE;
+            $data['main_content'] = 'frontend/view_login';
+            $this->load->view('includes/frontend_template', $data);
+        }
+        } else {
+            $data['main_content'] = 'frontend/view_login';
+            $this->load->view('includes/frontend_template',$data);
+        }
+
+    }
     /**
     * The method just loads the signup view
     * @return void
@@ -133,6 +169,14 @@ class User extends CI_Controller {
 
             if($query = $this->Users_model->create_driver_member())
             {
+                $user_id = $this->Users_model->get_user_id_by_user_name($this->input->post('username'));
+                $driver_id = $this->Users_model->get_driver_id($user_id);
+                $data = array(
+                    'is_logged_in' => true,
+                    'user_id' => $user_id,
+                    'driver_id' => $driver_id
+                );
+                $this->session->set_userdata($data);
                 $data['main_content'] = 'frontend/view_delivery_listing';
                 $this->load->view('includes/frontend_template', $data);
             }
@@ -148,5 +192,9 @@ class User extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('admin');
 	}
-
+    function logout_frontend()
+    {
+        $this->session->sess_destroy();
+        redirect('');
+    }
 }

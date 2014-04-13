@@ -75,3 +75,9 @@
         </div>
     </form>
 </div>
+<script>
+    $('#multipage').multipage({
+        'stayLinkable':true,
+        'submitLabel':'Register!'
+    });
+</script>

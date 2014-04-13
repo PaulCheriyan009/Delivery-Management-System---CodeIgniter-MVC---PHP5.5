@@ -19,7 +19,18 @@ class Users_model extends CI_Model {
 			return true;
 		}		
 	}
+    function validate_frontend($user_name, $password)
+    {
+        $this->db->where('user_name', $user_name);
+        $this->db->where('pass_word', $password);
+        $this->db->where('membership_type_id',4);
+        $query = $this->db->get('membership');
 
+        if($query->num_rows == 1)
+        {
+            return true;
+        }
+    }
     /**
     * Serialize the session data stored in the database, 
     * store it in a new array and return it to the controller 
@@ -127,6 +138,20 @@ class Users_model extends CI_Model {
         $this->db->where('membership.user_name',$name);
         $query = $this->db->get();
         return $query;
+    }
+    function get_user_id_by_user_name($user_name) {
+        $this->db->select('id');
+        $this->db->from('membership');
+        $this->db->where('user_name',$user_name);
+        $query = $this->db->get();
+        return $query->row()->id;
+    }
+    function get_driver_id($user_id) {
+        $this->db->select('driver_id');
+        $this->db->from('drivers');
+        $this->db->where('membership_id',$user_id);
+        $query = $this->db->get();
+        return $query->row()->driver_id;
     }
 }
 

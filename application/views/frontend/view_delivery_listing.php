@@ -7,6 +7,13 @@
             <h1>Your Deliveries</h1>
             <p class="lead">
             Here are your current deliveries:
+
+                <?php
+                foreach ($deliveries as $row) {
+                    echo 'yes';
+                }
+
+                ?>
             </p>
         </div>
     </div>

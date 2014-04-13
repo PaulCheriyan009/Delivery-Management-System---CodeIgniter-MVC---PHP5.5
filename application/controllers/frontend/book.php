@@ -22,7 +22,10 @@ class book extends CI_Controller {
         $this->load->view('includes/frontend_template',$data);
     }
     function delivery_listing() {
-        $data['user_id'] = $this->session->userdata['id'];
+        $data['user_id'] = $this->session->userdata['user_id'];
+        $data['driver_id'] = $this->session->userdata['driver_id'];
+        $driver_id = $this->session->userdata['driver_id'];
+        $data['deliveries'] = $this->deliveries_model->get_deliveries_for_driver($driver_id);
         $data['main_content'] = 'frontend/view_delivery_listing';
         $this->load->view('includes/frontend_template',$data);
     }
