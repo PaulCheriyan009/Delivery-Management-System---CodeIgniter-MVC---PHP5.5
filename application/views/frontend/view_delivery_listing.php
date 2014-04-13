@@ -9,10 +9,11 @@
             Here are your current deliveries:
 
                 <?php
-                foreach ($deliveries as $row) {
-                    echo 'yes';
+                if(!empty($deliveries)) {
+                    foreach ($deliveries as $row) {
+                        echo 'yes';
+                    }
                 }
-
                 ?>
             </p>
         </div>

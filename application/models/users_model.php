@@ -74,10 +74,11 @@ class Users_model extends CI_Model {
             //select top id from membership table
             $id = $this->db->query('select id from membership order by id desc limit 1')->row()->id;
             // then insert accompanying record into drivers table
+            $date_of_birth = DateTime::createFromFormat('d-m-Y',$this->input->post('driver_date_of_birth'));
             $new_driver_insert_data = array(
                 'driver_first_name' => $this->input->post('firstname'),
                 'driver_last_name' => $this->input->post('lastname'),
-                'driver_dob' => $this->input->post('driver_date_of_birth'),
+                'driver_dob' => $date_of_birth->format('Y-m-d'),
                 'driver_phone_number' => $this->input->post('phonenumber'),
                 'company_id' => $this->input->post('company_id'),
                 'membership_id' => $id

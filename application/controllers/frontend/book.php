@@ -22,6 +22,7 @@ class book extends CI_Controller {
         $this->load->view('includes/frontend_template',$data);
     }
     function delivery_listing() {
+        $this->output->enable_profiler(TRUE);
         $data['user_id'] = $this->session->userdata['user_id'];
         $data['driver_id'] = $this->session->userdata['driver_id'];
         $driver_id = $this->session->userdata['driver_id'];
