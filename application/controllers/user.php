@@ -59,13 +59,12 @@ class User extends CI_Controller {
     {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
-
         $this->load->model('Users_model');
 
-        $user_name = $this->input->post('user_name');
-        $password = $this->__encrip_password($this->input->post('password'));
+        $email = $this->input->post('email');
+        $password = md5($this->input->post('password'));
 
-        $is_valid = $this->Users_model->validate_frontend($user_name, $password);
+        $is_valid = $this->Users_model->validate_frontend($email, $password);
 
         if($is_valid)
         {
@@ -80,13 +79,13 @@ class User extends CI_Controller {
 
             // default view redirect
             redirect(base_url().'home');
-        }
-        else // incorrect username or password
+        } else // incorrect username or password
         {
             $data['message_error'] = TRUE;
             $data['main_content'] = 'frontend/view_login';
             $this->load->view('includes/frontend_template', $data);
         }
+        // non HTTP $_POST stuff
         } else {
             $data['main_content'] = 'frontend/view_login';
             $this->load->view('includes/frontend_template',$data);
@@ -145,8 +144,6 @@ class User extends CI_Controller {
     function create_driver_member()
     {
         $this->load->library('form_validation');
-
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname','First Name','required|trim');
         $this->form_validation->set_rules('lastname','Last Name','required|trim');
         $this->form_validation->set_rules('phonenumber','Phone Number','required|trim');
@@ -154,7 +151,7 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[membership.email_addres]|xss_clean');
         $this->form_validation->set_rules('confirmemail','Confirm Email','required|trim|matches[email]');
         $this->form_validation->set_rules('username','Username','required|trim');
-        $this->form_validation->set_rules('password','Password','required|md5|trim|min_length[4]|max_length[32]');
+        $this->form_validation->set_rules('password','Password','required|trim|min_length[4]|max_length[32]');
 
         $this->form_validation->set_message('is_unique',"That email address already exists");
 //        $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');

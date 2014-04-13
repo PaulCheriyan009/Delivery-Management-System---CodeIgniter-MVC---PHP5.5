@@ -56,11 +56,11 @@
             <div class="span4 pagination-centered">
                 <div class="items">
                     <ul>
-                        <?php
-                        foreach($in_progress_deliveries as $row) {
-                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td><i class="fa fa-clock-o"></i> '.$row['time_stamp'].'</td><td></td><td>test</td></tbody></table></li>';
-                        }
-                        ?>
+<!--                        --><?php
+//                        foreach($in_progress_deliveries as $row) {
+//                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td><i class="fa fa-clock-o"></i> '.$row['time_stamp'].'</td><td></td><td>test</td></tbody></table></li>';
+//                        }
+//                        ?>
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 var facility_id,date, delivery_id, time;
-delivery_id = $('input[name="delivery_id"]').val();
 $(function(){
     $('#timeslot_results').hide();
     $('.datepicker').datepicker({
@@ -7,11 +6,15 @@ $(function(){
         yearRange: '1910:2010',
         changeYear: true
     });
+    $('.datepicker-booking').datepicker({
+        dateFormat:"dd-mm-yy"
+    });
     $('div.results').on('click','button', function(){
         if (!confirm("Is this the time you want to book?")){
             return false;
         } else {
             time = $(this).text();
+            delivery_id = $('input[name="delivery_id"]').val();
             $.ajax({
                type:'POST',
                context:this,
@@ -22,34 +25,4 @@ $(function(){
              });
         }
     });
-});
-$('[name=facility_id]').ddslick({
-    width:300,
-    selectText:"Please select",
-    onSelected: function(data) {
-        facility_id = data.selectedData.value;
-        date = $('input[name="date_stamp"]').val();
-        $.ajax({
-            type:'POST',
-            url:'http://localhost/get-facility-timeslots/' + facility_id + '/' + date,
-            dataType: 'json',
-            beforeSend: function() {
-                $('.loading').show();
-                $('#timeslot_results').focus().slideDown();
-                $('.result_inner ul').remove();
-            },
-            success: function(data) {
-                setTimeout(function() {
-                    $('.loading').hide();
-                    $('#timeslot_results div.result_inner').append('<ul>');
-                    $.each(data, function() {
-                        $.each(this, function(k, v) {
-                            $('#timeslot_results div.result_inner ul').append('<li><button class="btn btn-primary btn-lg">' + v + '</button></li>');
-                        });
-                    });
-                    $('#timeslot_results div.result_inner').append('</ul>');
-                }, 1000);
-            }
-        })
-    }
 });

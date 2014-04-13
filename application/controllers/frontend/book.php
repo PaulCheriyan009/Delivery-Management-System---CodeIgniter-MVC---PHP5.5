@@ -22,7 +22,6 @@ class book extends CI_Controller {
         $this->load->view('includes/frontend_template',$data);
     }
     function delivery_listing() {
-        $this->output->enable_profiler(TRUE);
         $data['user_id'] = $this->session->userdata['user_id'];
         $data['driver_id'] = $this->session->userdata['driver_id'];
         $driver_id = $this->session->userdata['driver_id'];
@@ -33,6 +32,17 @@ class book extends CI_Controller {
     function create_delivery() {
         $data['main_content'] = 'frontend/view_delivery_creation';
         $this->load->view('includes/frontend_template',$data);
+        if($this->input->server('REQUEST_METHOD') == 'POST') {
+            $dateformat = DateTime::createFromFormat('d-m-Y',$this->input->post('date_stamp'));
+            $data_to_store = array(
+              'vehicle_id' => $_POST['vehicle_id'],
+              'date_stamp' => $dateformat->format('Y-m-d'),
+              'status_id' => $_POST['status_id'],
+              'driver_id' => $_POST['driver_id']
+            );
+            $this->deliveries_model->store_deliveries($data_to_store);
+            redirect(base_url().'your-deliveries');
+        }
     }
     function add_timeslot($delivery_id,$facility_id,$date,$time) {
         if($this->input->server('REQUEST_METHOD') === 'POST') {

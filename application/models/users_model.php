@@ -19,11 +19,11 @@ class Users_model extends CI_Model {
 			return true;
 		}		
 	}
-    function validate_frontend($user_name, $password)
+    function validate_frontend($email, $password)
     {
-        $this->db->where('user_name', $user_name);
+        $this->db->where('email_addres', $email);
         $this->db->where('pass_word', $password);
-        $this->db->where('membership_type_id',4);
+        $this->db->where('membership_type_id','4');
         $query = $this->db->get('membership');
 
         if($query->num_rows == 1)

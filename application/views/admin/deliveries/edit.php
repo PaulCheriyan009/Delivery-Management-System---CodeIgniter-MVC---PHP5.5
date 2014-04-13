@@ -81,16 +81,6 @@
                 </div>
             </div>
             <div class="control-group">
-                <label for="inputError" class="control-label">Earliest Start Time</label>
-                <div class="controls">
-                    <?php
-                    $time = DateTime::createFromFormat("G:i:s", $delivery[0]['time_stamp']);
-                    ?>
-                    <input type="text" id="deliverytime" name="time_stamp" value="<?php echo $time->format('h:i') ?>">
-                    <!--<span class="help-inline">Cost Price</span>-->
-                </div>
-            </div>
-            <div class="control-group">
                 <label for="inputError" class="control-label">Vehicle Registration</label>
                 <div class="controls">
                     <input type="text" id="vehicle_registration" name="vehicle_registration" value="<?php echo $delivery[0]['vehicle_registration'] ?>">

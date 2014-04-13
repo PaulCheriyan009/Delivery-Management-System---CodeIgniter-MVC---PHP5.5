@@ -21,15 +21,14 @@
         echo '<legend>Current Facilities</legend>';
 
         if(count($delivery_info) > 0) {
-        echo '<div id="rows"><table class="table table-striped"><thead><th>ID</th><th>Name</th><th>Town/City</th><th>Postcode</th><th>Start Time</th><th>End Time</th></thead><tbody>';
+        echo '<div id="rows"><table class="table table-striped"><thead><th>ID</th><th>Name</th><th>Town/City</th><th>Postcode</th><th>Start Time</th></thead><tbody>';
         foreach($delivery_info as $row) {
             echo '<tr>';
             echo '<td>'.$row['facility_id'].'</td>';
             echo '<td>'.$row['facility_name'].'</td>';
             echo '<td>'.$row['facility_locality'].'</td>';
             echo '<td class="postcode">'.$row['facility_postcode'].'</td>';
-            echo '<td>'.$row['authorization_start_time'].'</td>';
-            echo '<td>'.$row['authorization_end_time'].'</td>';
+            echo '<td>'.$row['start_time'].'</td>';
             echo '<td></td>';
             echo '<td><a class="span1 delete-facility btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Remove</a>';
             echo '<input id="link_id" name="id" type="hidden" value="'.$row['id'].'"/></td>';
@@ -57,14 +56,8 @@
               'class' => 'time_picker',
               'name' => 'authorization_start_time'
             );
-            $time_opts2 = array(
-                'class' => 'time_picker',
-                'name' => 'authorization_end_time'
-            );
             echo '<label for="authorization_start_time">Authorization Start Time</label>';
             echo form_input($time_opts1);
-            echo '<label for="authorization_end_time">Authorization End Time</label>';
-            echo form_input($time_opts2);
             echo '<label for="facility_id">Facility</label>';
 //            echo '<div class="control-group">';
 //            echo '<div class="controls">';

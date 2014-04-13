@@ -117,7 +117,6 @@ class Deliveries_model extends CI_Model {
 //		$this->db->select('*');
         $this->db->select('deliveries.delivery_id');
 		$this->db->select('deliveries.date_stamp');
-		$this->db->select('deliveries.time_stamp');
 		$this->db->select('deliveries.driver_id');
 		$this->db->select('deliveries.vehicle_id');
         $this->db->select('deliveries.description');
@@ -167,7 +166,6 @@ class Deliveries_model extends CI_Model {
     {
         $this->db->select('deliveries.delivery_id');
         $this->db->select('deliveries.date_stamp');
-        $this->db->select('deliveries.time_stamp');
         $this->db->select('deliveries.driver_id');
         $this->db->select('drivers.driver_first_name');
         $this->db->select('drivers.driver_last_name');

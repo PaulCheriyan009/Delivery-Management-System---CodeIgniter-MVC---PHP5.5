@@ -253,7 +253,6 @@ class Admin_deliveries extends CI_Controller {
             //form validation
             $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('date_stamp', 'Date', 'required|callback_validdate');
-            $this->form_validation->set_rules('time_stamp', 'Time', 'required|trim|min_length[3]|max_length[5]|callback_validate_time');
             $this->form_validation->set_rules('vehicle_id', 'Vehicle ID', 'required|numeric');
             $this->form_validation->set_rules('status_id', 'Status', 'required');
             $this->form_validation->set_rules('driver_id','driver_id','required');
@@ -266,7 +265,6 @@ class Admin_deliveries extends CI_Controller {
                 $db_date = DateTime::createFromFormat('d-m-Y', $date_to_format_to_mysql_time);
                 $data_to_store = array(
                     'date_stamp' => $db_date->format('Y-m-d'),
-                    'time_stamp' => $this->input->post('time_stamp'),
                     'driver_id' => $this->input->post('driver_id'),
                     'vehicle_id' => $this->input->post('vehicle_id'),
                     'status_id' => $this->input->post('status_id'),
@@ -308,7 +306,6 @@ class Admin_deliveries extends CI_Controller {
             //form validation
             $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('date_stamp', 'Date', 'required|callback_validdate');
-            $this->form_validation->set_rules('time_stamp', 'Time', 'required|trim|min_length[3]|max_length[5]|callback_validate_time');
             $this->form_validation->set_rules('vehicle_id', 'Vehicle ID', 'required|numeric');
 //            $this->form_validation->set_rules('facility_id', 'Facility ID', 'required');
             $this->form_validation->set_rules('driver_id','driver_id','required');
@@ -321,7 +318,6 @@ class Admin_deliveries extends CI_Controller {
                 $data_to_store = array(
                     'description' => $this->input->post('description'),
                     'date_stamp' => $db_date->format('Y-m-d'),
-                    'time_stamp' => $this->input->post('time_stamp'),
                     'vehicle_id' => $_POST['vehicle_id'],
                     'status_id' => $this->input->post('status_id'),
                     'driver_id' => $this->input->post('driver_id')

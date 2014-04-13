@@ -70,7 +70,6 @@ height: 26px;"');
               <tr>
                 <th class="header">ID</th>
                 <th class="yellow header headerSortDown">Date</th>
-                <th class="green header">Earliest Start Time</th>
                 <th class="red header">Driver Name</th>
                 <th class="red header">Driver ID</th>
                 <th class="red header">Vehicle Registration</th>
@@ -104,9 +103,7 @@ height: 26px;"');
                 echo '<tr>';
                 echo '<td>'.$row['delivery_id'].'</td>';
                   $date = DateTime::createFromFormat('Y-m-d', $row['date_stamp']);
-                  $time = DateTime::createFromFormat('H:i:s',$row['time_stamp']);
                 echo '<td>'.$date->format('F j, Y').'</td>';
-                echo '<td>'.$time->format('H:i').'</td>';
                 echo '<td>' . $row['driver_first_name'] . ' ' . $row['driver_last_name'] . '</td>';
                 echo '<td>'.$row['driver_id'].'</td>';
                 echo '<td>'.$row['vehicle_registration'].'</td>';
