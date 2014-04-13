@@ -14,11 +14,21 @@
         foreach ($facilities as $row) {
             $options_facility[$row['facility_id']] = $row['facility_name'];
         }
+        echo form_label('Delivery ID','delivery_id');
+        $attributes = array(
+            'name' => 'delivery_id',
+            'value' => $delivery_id,
+            'disabled' => true
+
+        );
+        $date = DateTime::createFromFormat('Y-m-d', $date_stamp[0]['date_stamp']);
+        $date = $date->format('d-m-Y');
+        echo form_input($attributes);
+        echo form_label('Date', 'date_stamp','class="form-label" id="date_stamp_label"');
+        echo form_input('date_stamp',$date,'disabled="true"');
         echo form_label('Choose a facility', 'facility_id','class="form-label"');
         echo form_dropdown('facility_id', $options_facility, 'class="form-control"');
         echo '<div id="date_panel">';
-        echo form_label('Choose a date', 'date_stamp','class="form-label" id="date_stamp_label"');
-        echo form_input('date_stamp','','placeholder="Please select a date"');
         echo '</div>';
         ?>
         <hr>

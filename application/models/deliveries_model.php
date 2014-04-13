@@ -11,6 +11,13 @@ class Deliveries_model extends CI_Model {
         $insert = $this->db->insert('delivery_facility_link', $data);
         return $insert;
     }
+    public function get_date_of_delivery($delivery_id) {
+        $this->db->select('date_stamp as date_stamp');
+        $this->db->from('deliveries');
+        $this->db->where('delivery_id',$delivery_id);
+        $q = $this->db->get();
+        return $q->result_array();
+    }
     public function delete_facility_from_existing_delivery($delivery_facility_link_id) {
         $this->db->where('id', $delivery_facility_link_id);
         $this->db->delete('delivery_facility_link');
@@ -43,6 +50,7 @@ class Deliveries_model extends CI_Model {
         return $query->result_array();
     }
     public function get_free_delivery_timeslots($facility_id, $date_stamp) {
+//        $this->db->insert
        $query = $this->db->query('SELECT t.slot FROM timeslots t LEFT JOIN delivery_facility_link dl ON (t.slot = dl.start_time AND date_stamp = "'.mysql_real_escape_string($date_stamp).'" AND dl.facility_id = '.$facility_id.') WHERE start_time IS NULL');
        return $query->result();
     }

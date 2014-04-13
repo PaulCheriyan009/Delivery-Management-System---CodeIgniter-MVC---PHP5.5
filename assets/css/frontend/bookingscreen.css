@@ -48,6 +48,11 @@ div.results ul {
     width:760px;
     overflow:hidden;
 }
+button.btn:active, button.btn:hover {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
 div.results ul li {
     padding:10px;
     float:left;
