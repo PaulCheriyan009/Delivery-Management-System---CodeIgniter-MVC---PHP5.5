@@ -21,6 +21,15 @@ class book extends CI_Controller {
         $data['date_stamp'] = $this->deliveries_model->get_date_of_delivery($delivery_id);
         $this->load->view('includes/frontend_template',$data);
     }
+    function delivery_listing() {
+        $data['user_id'] = $this->session->userdata['id'];
+        $data['main_content'] = 'frontend/view_delivery_listing';
+        $this->load->view('includes/frontend_template',$data);
+    }
+    function create_delivery() {
+        $data['main_content'] = 'frontend/view_delivery_creation';
+        $this->load->view('includes/frontend_template',$data);
+    }
     function add_timeslot($delivery_id,$facility_id,$date,$time) {
         if($this->input->server('REQUEST_METHOD') === 'POST') {
             $delivery_id = $this->uri->segment(2);

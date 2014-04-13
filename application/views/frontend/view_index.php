@@ -53,7 +53,7 @@
                 <h2 class="section-heading">Already a Member?</h2>
                 <p class="lead">Login to view your current deliveries, and to book new ones!</p>
                 <p>
-                    <button type="button" class="btn btn-primary btn-lg">Sign In Now</button>
+                    <a href="<?php echo base_url(); ?>login" class="btn btn-primary btn-lg">Sign In Now</a>
                 </p>
             </div>
             <div class="col-lg-5 col-sm-pull-6  col-sm-6">

@@ -5,13 +5,12 @@ class Register extends CI_Controller {
 function __construct()
 	 {
 	   parent::__construct();
+         $this->load->model('Users_model');
 	 }
 	 
 public function index()
 	{
-		//echo 'hello universe';
 		$this->register();
-
 	}
 
 public function register()
@@ -29,12 +28,9 @@ public function register()
 			if ($this->form_validation->run() == false){
                 $data['main_content'] = 'frontend/view_register';
                 $this->load->view('includes/frontend_template', $data);
-			}else {echo "pass".'<br>';
-					$this->load->model('users_model');
+			}else {
 					
-					$this->model_users->create_member();
-
-
+				$this->Users_model->create_driver_member();
                 $data['main_content'] = 'frontend/view_userpage';
                 $this->load->view('includes/frontend_template', $data);
 				  }

@@ -106,6 +106,39 @@ class User extends CI_Controller {
 		}
 
 	}
+    function create_driver_member()
+    {
+        $this->load->library('form_validation');
+
+        // field name, error message, validation rules
+        $this->form_validation->set_rules('first_name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+        $this->form_validation->set_rules('email_addres', 'Email Address', 'trim|required|valid_email');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+        $this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('admin/signup_form');
+        }
+
+        else
+        {
+            $this->load->model('Users_model');
+
+            if($query = $this->Users_model->create_driver_member())
+            {
+                $this->load->view('frontend/view_delivery_listing');
+            }
+            else
+            {
+                $this->load->view('frontend/view_register');
+            }
+        }
+
+    }
 	/**
     * Destroy the session, and logout the user.
     * @return void
