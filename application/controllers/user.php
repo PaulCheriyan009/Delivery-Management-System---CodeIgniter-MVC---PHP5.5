@@ -110,31 +110,31 @@ class User extends CI_Controller {
     {
         $this->load->library('form_validation');
 
-        // field name, error message, validation rules
-        $this->form_validation->set_rules('first_name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
-        $this->form_validation->set_rules('email_addres', 'Email Address', 'trim|required|valid_email');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
-        $this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('firstname','First Name','required|trim');
+        $this->form_validation->set_rules('lastname','Last Name','required|trim');
+        $this->form_validation->set_rules('phonenumber','Phone Number','required|trim');
+        $this->form_validation->set_rules('driver_date_of_birth','Date of Birth','required|trim');
+        $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[membership.email_addres]|xss_clean');
+        $this->form_validation->set_rules('confirmemail','Confirm Email','required|trim|matches[email]');
+        $this->form_validation->set_rules('username','Username','required|trim');
+        $this->form_validation->set_rules('password','Password','required|md5|trim|min_length[4]|max_length[32]');
 
-        if($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('admin/signup_form');
+        $this->form_validation->set_message('is_unique',"That email address already exists");
+//        $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+
+        if ($this->form_validation->run() == false){
+            $data['main_content'] = 'frontend/view_register';
+            $this->load->view('includes/frontend_template', $data);
         }
-
         else
         {
             $this->load->model('Users_model');
 
             if($query = $this->Users_model->create_driver_member())
             {
-                $this->load->view('frontend/view_delivery_listing');
-            }
-            else
-            {
-                $this->load->view('frontend/view_register');
+                $data['main_content'] = 'frontend/view_delivery_listing';
+                $this->load->view('includes/frontend_template', $data);
             }
         }
 

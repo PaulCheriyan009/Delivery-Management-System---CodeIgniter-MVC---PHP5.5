@@ -22,6 +22,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.ddslick.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.multipage.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/frontend.js"></script>
 </body>
 

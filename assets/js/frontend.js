@@ -1,6 +1,10 @@
 var facility_id,date, delivery_id, time;
 delivery_id = $('input[name="delivery_id"]').val();
 $(function(){
+    $('#multipage').multipage({
+        'stayLinkable':true,
+        'submitLabel':'Register!'
+    });
     $('#timeslot_results').hide();
     $('.datepicker').datepicker({
         dateFormat:"dd-mm-yy",

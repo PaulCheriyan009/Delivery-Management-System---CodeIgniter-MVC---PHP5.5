@@ -38,32 +38,41 @@ class Users_model extends CI_Model {
 		}
 		return $user;
 	}
-	function create_driver_member() {
+    /**
+     * Store the drivers data in the membership table for login purposes then insert into the drivers table for admin purposes.
+     * @return boolean - check the insert
+     */
+    function create_driver_member() {
         $this->db->where('user_name', $this->input->post('username'));
         $query = $this->db->get('membership');
         if($query->num_rows > 0){
-            echo '<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>';
-            echo "Username already taken";
-            echo '</strong></div>';
+            $data['main_content'] = 'frontend/view_register';
+            $data['username_taken'] = true;
+            $this->load->view('includes/frontend_template',$data);
         } else {
-            // first insert into drivers table
-            $new_driver_insert_data = array(
-              'driver_first_name' => $this->input->post('first_name'),
-              'driver_last_name' => $this->input->post('last_name'),
-              'driver_dob' => $this->input->post('date_of_birth'),
-              'driver_phone_number' => $this->input->post('phone_number'),
-              'company_id' => $this->input->post('company_id')
-            );
-            $this->db->insert('drivers',$new_driver_insert_data);
+            // first insert into membership table
             $new_member_insert_data = array(
-                'first_name' => $this->input->post('first_name'),
-                'last_name' => $this->input->post('last_name'),
-                'email_addres' => $this->input->post('email_address'),
+                'first_name' => $this->input->post('firstname'),
+                'last_name' => $this->input->post('lastname'),
+                'email_addres' => $this->input->post('email'),
                 'user_name' => $this->input->post('username'),
                 'pass_word' => md5($this->input->post('password')),
                 'membership_type_id' => 4
             );
             $insert = $this->db->insert('membership', $new_member_insert_data);
+            //select top id from membership table
+            $id = $this->db->query('select id from membership order by id desc limit 1')->row()->id;
+            // then insert accompanying record into drivers table
+            $new_driver_insert_data = array(
+                'driver_first_name' => $this->input->post('firstname'),
+                'driver_last_name' => $this->input->post('lastname'),
+                'driver_dob' => $this->input->post('driver_date_of_birth'),
+                'driver_phone_number' => $this->input->post('phonenumber'),
+                'company_id' => $this->input->post('company_id'),
+                'membership_id' => $id
+            );
+            $this->db->insert('drivers',$new_driver_insert_data);
+
             return $insert;
         }
     }

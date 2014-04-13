@@ -96,7 +96,7 @@ $route['admin/dashboard/get_delivery_count_by_date_range/(:any)/(:any)'] = 'admi
 /* lukes routes */
 
 $route['booking'] = 'frontend/home';
-$route['register'] = 'frontend/register';
+$route['register'] = 'user/create_driver_member';
 $route['home'] = 'frontend/home';
 $route['login'] = 'frontend/login';
 $route['your-deliveries'] = 'frontend/book/delivery_listing';
