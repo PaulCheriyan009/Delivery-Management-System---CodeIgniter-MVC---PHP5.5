@@ -19,6 +19,7 @@ class book extends CI_Controller {
         $data['main_content'] = 'frontend/view_delivery_booking';
         $data['delivery_id'] = $delivery_id;
         $data['date_stamp'] = $this->deliveries_model->get_date_of_delivery($delivery_id);
+        $data['items'] = $this->deliveries_model->get_delivery_with_facility($delivery_id);
         $this->load->view('includes/frontend_template',$data);
     }
     function delivery_listing() {

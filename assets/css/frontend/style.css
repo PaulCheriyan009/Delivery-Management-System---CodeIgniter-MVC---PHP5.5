@@ -165,9 +165,12 @@ p.copyright {
 }
 /* adams stuff */
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+    max-width: 350px;
+    padding: 25px;
+    margin: 100px auto;
+    background: #eee;
+    min-height: 300px;
+    border-radius: 20px;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -212,4 +215,8 @@ div.error p {
     width:300px;
     color:#D9534F;
     font-weight: bold;
+}
+div.login-bg {
+    background-image:url('../../img/intro-bg.jpg');
+    background-size:cover;
 }

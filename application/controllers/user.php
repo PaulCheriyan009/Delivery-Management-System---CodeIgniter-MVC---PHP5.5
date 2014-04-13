@@ -78,7 +78,7 @@ class User extends CI_Controller {
             $this->session->set_userdata($data);
 
             // default view redirect
-            redirect(base_url().'home');
+            redirect(base_url().'your-deliveries');
         } else // incorrect username or password
         {
             $data['message_error'] = TRUE;

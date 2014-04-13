@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid login-bg">
 
     <form class="form-signin" method="post" role="form" action="<?php echo base_url(); ?>login">
         <h2 class="form-signin-heading">Please sign in</h2>

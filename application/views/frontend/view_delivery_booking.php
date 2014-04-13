@@ -4,7 +4,24 @@
 <div class="container">
     <div class="row">
 <div id="main">
+    <div class="current-facilities">
+        <h1>Current Facilities</h1>
+        <p class="lead">
+            Here are the facilities that this delivery is currently set to visit. If you think that you are visiting a facility in error, or if there is another problem, please contact your DMS administrator.
+        </p>
+        <hr>
+        <?php
+        if(!empty($items)) {
+            echo '<ul class="delivery-listing">';
+            foreach ($items as $row) {
+                echo '<li><span>'.$row['facility_name'].'</span><span><i class="fa fa-clock-o"></i>&nbsp;'.$row['start_time'].'</span></li>';
+            }
+            echo '</ul>';
+        }
+        ?>
+    </div>
     <h1>Find A Timeslot</h1>
+    <hr>
     <p class="lead">
         Please use the page below to book timeslots for your chosen delivery. All timeslots last for an hour at any given facility, and timeslots do not overlap with one another.</p><p class="lead">The start of the timeslot corresponds to the start time of the delivery's authorization to the facility. The end of the timeslot corresponds to the end of the delivery's authorization at that particular facility.</p>
 

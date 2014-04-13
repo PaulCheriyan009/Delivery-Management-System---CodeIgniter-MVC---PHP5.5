@@ -17,45 +17,82 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="100" column="53" selection-start="4226" selection-end="4226" vertical-scroll-proportion="0.8373354" vertical-offset="434" max-vertical-offset="1725">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="code" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_facility.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/deliveries/add_facility.php">
+      <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="64" selection-start="3008" selection-end="3008" vertical-scroll-proportion="0.15888779" vertical-offset="875" max-vertical-offset="2145">
+            <state line="64" column="20" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.3326713" vertical-offset="625" max-vertical-offset="3075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/drivers/list.php">
+      <file leaf-file-name="deliveries_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/deliveries_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1455">
+            <state line="101" column="46" selection-start="4673" selection-end="4699" vertical-scroll-proportion="-11.25" vertical-offset="1245" max-vertical-offset="3735">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookingscreen.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/frontend/bookingscreen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="19" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="1830">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_delivery_creation.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="43" selection-start="1203" selection-end="1203" vertical-scroll-proportion="-14.208333" vertical-offset="4" max-vertical-offset="1260">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/view_index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="59" selection-start="1819" selection-end="1819" vertical-scroll-proportion="-13.208333" vertical-offset="508" max-vertical-offset="1515">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_dashboard.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin_dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="77" selection-start="881" selection-end="881" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="525">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/frontend/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="219" column="51" selection-start="4152" selection-end="4152" vertical-scroll-proportion="0.0" vertical-offset="2314" max-vertical-offset="3420">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_delivery_booking.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1635">
+              <folding>
+                <marker date="1397428283000" expanded="true" signature="2613:2620" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,43 +100,7 @@
       <file leaf-file-name="book.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/frontend/book.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="48" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-26.875" vertical-offset="0" max-vertical-offset="1200">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="9" selection-start="1307" selection-end="1307" vertical-scroll-proportion="-29.375" vertical-offset="195" max-vertical-offset="3075">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_register.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/frontend/view_register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="78" selection-start="2917" selection-end="2925" vertical-scroll-proportion="-27.333334" vertical-offset="304" max-vertical-offset="1335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="18" selection-start="7398" selection-end="7398" vertical-scroll-proportion="-6.84" vertical-offset="2958" max-vertical-offset="5520">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/frontend/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="75" selection-start="779" selection-end="904" vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="1110">
+            <state line="21" column="91" selection-start="741" selection-end="741" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -108,7 +109,7 @@
       <file leaf-file-name="view_login.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/frontend/view_login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="10" selection-start="783" selection-end="783" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="330">
+            <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -138,7 +139,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/facilities/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/facilities/add.php" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
-        <option value="$PROJECT_DIR$/application/controllers/admin_dashboard.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/views/includes/front_end_template.php" />
         <option value="$PROJECT_DIR$/system/libraries/Role.php" />
@@ -154,27 +154,28 @@
         <option value="$PROJECT_DIR$/assets/js/jquery.ddslick.js" />
         <option value="$PROJECT_DIR$/application/views/frontend/view_index.php" />
         <option value="$PROJECT_DIR$/application/views/admin/signup_form.php" />
-        <option value="$PROJECT_DIR$/assets/css/frontend/style.css" />
         <option value="$PROJECT_DIR$/application/controllers/frontend/register.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/view_register.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/view_login.php" />
         <option value="$PROJECT_DIR$/application/views/includes/frontend_footer.php" />
-        <option value="$PROJECT_DIR$/application/views/includes/frontend_header.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php" />
-        <option value="$PROJECT_DIR$/assets/css/frontend/bookingscreen.css" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php" />
-        <option value="$PROJECT_DIR$/application/controllers/frontend/book.php" />
         <option value="$PROJECT_DIR$/assets/js/frontend.js" />
-        <option value="$PROJECT_DIR$/application/models/deliveries_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/deliveries/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/deliveries/edit.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_deliveries.php" />
         <option value="$PROJECT_DIR$/application/views/admin/dashboard/index.php" />
         <option value="$PROJECT_DIR$/application/views/admin/deliveries/add_facility.php" />
         <option value="$PROJECT_DIR$/application/models/users_model.php" />
+        <option value="$PROJECT_DIR$/application/views/includes/frontend_header.php" />
         <option value="$PROJECT_DIR$/application/controllers/user.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php" />
+        <option value="$PROJECT_DIR$/application/models/deliveries_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/frontend/book.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php" />
+        <option value="$PROJECT_DIR$/assets/css/frontend/bookingscreen.css" />
+        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/view_login.php" />
+        <option value="$PROJECT_DIR$/assets/css/frontend/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_dashboard.php" />
       </list>
     </option>
   </component>
@@ -258,6 +259,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -806,13 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/frontend/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="15" selection-start="3947" selection-end="3947" vertical-scroll-proportion="-35.76923" vertical-offset="2220" max-vertical-offset="3315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/signup_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="1938" selection-end="1993" vertical-scroll-proportion="0.43197617" vertical-offset="0" max-vertical-offset="1007">
@@ -823,13 +821,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/frontend/view_userpage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.75" vertical-offset="90" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="59" selection-start="1819" selection-end="1819" vertical-scroll-proportion="-24.166666" vertical-offset="245" max-vertical-offset="1515">
           <folding />
         </state>
       </provider>
@@ -848,27 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/includes/frontend_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="97" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.28346458" vertical-offset="0" max-vertical-offset="1270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="77" selection-start="460" selection-end="460" vertical-scroll-proportion="0.15354331" vertical-offset="0" max-vertical-offset="1270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/frontend/bookingscreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="17" selection-start="2329" selection-end="2329" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1830">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/deliveries/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="18" selection-start="4830" selection-end="4830" vertical-scroll-proportion="-27.291666" vertical-offset="1160" max-vertical-offset="2505">
@@ -876,32 +846,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="67" selection-start="1541" selection-end="1550" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="1260">
-          <folding>
-            <marker date="1397422756000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="7" selection-start="3251" selection-end="3251" vertical-scroll-proportion="-49.375" vertical-offset="0" max-vertical-offset="1350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/frontend.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="53" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/deliveries_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="0" selection-start="5548" selection-end="9943" vertical-scroll-proportion="-0.0" vertical-offset="3570" max-vertical-offset="3765">
           <folding />
         </state>
       </provider>
@@ -930,37 +877,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="8" selection-start="797" selection-end="843" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/drivers/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/frontend/book.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="48" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-26.875" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/frontend/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="75" selection-start="779" selection-end="904" vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="1110">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="10" selection-start="783" selection-end="783" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="330">
           <folding />
         </state>
       </provider>
@@ -995,13 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="9" selection-start="1307" selection-end="1307" vertical-scroll-proportion="-29.375" vertical-offset="195" max-vertical-offset="3075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="0" selection-start="2573" selection-end="3002" vertical-scroll-proportion="0.7040715" vertical-offset="206" max-vertical-offset="1905">
@@ -1012,6 +924,99 @@
     <entry file="file://$PROJECT_DIR$/application/views/admin/deliveries/add_facility.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="64" selection-start="3008" selection-end="3008" vertical-scroll-proportion="0.15888779" vertical-offset="875" max-vertical-offset="2145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/drivers/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/includes/frontend_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="26" selection-start="2853" selection-end="2853" vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="28" selection-start="213" selection-end="213" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/frontend/book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="91" selection-start="741" selection-end="741" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/deliveries_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="46" selection-start="4673" selection-end="4699" vertical-scroll-proportion="-11.25" vertical-offset="1245" max-vertical-offset="3735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1635">
+          <folding>
+            <marker date="1397428283000" expanded="true" signature="2613:2620" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="43" selection-start="1203" selection-end="1203" vertical-scroll-proportion="-14.208333" vertical-offset="4" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="59" selection-start="1819" selection-end="1819" vertical-scroll-proportion="-13.208333" vertical-offset="508" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1007">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/frontend/bookingscreen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="19" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="1830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/frontend/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="51" selection-start="4152" selection-end="4152" vertical-scroll-proportion="0.0" vertical-offset="2314" max-vertical-offset="3420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="77" selection-start="881" selection-end="881" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="20" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.3326713" vertical-offset="625" max-vertical-offset="3075">
           <folding />
         </state>
       </provider>

@@ -13,7 +13,7 @@
             <div id="new-delivery-form">
                 <?php
                 echo form_open('create-delivery');
-                echo form_label('Date:','name_label', 'class="form-label"');
+                echo form_label('Date of Delivery:','name_label', 'class="form-label"');
                 echo form_input('date_stamp','','class="datepicker-booking" placeholder="Choose a date"');
                 echo '<hr>';
                 ?>

@@ -113,8 +113,6 @@ class Deliveries_model extends CI_Model {
     }
     public function get_deliveries($facility_id=null, $search_string=null, $order=null, $order_type='Asc', $limit_start, $limit_end)
     {
-	    
-//		$this->db->select('*');
         $this->db->select('deliveries.delivery_id');
 		$this->db->select('deliveries.date_stamp');
 		$this->db->select('deliveries.driver_id');

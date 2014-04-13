@@ -13,7 +13,7 @@
                     echo '<ul class="delivery-listing">';
                     echo '<li class="header"><span>ID</span><span>Time</span></li>';
                     foreach ($deliveries as $row) {
-                        echo '<li><span>'.$row['delivery_id'].'</span><span><i class="fa fa-clock-o"></i>&nbsp;'.$row['date_stamp'].'</span><span><a class="btn btn-primary" href="'.base_url().'book-timeslot/'.$row['delivery_id'].'">Add Facilities</a></span></li>';
+                        echo '<li><span>'.$row['delivery_id'].'</span><span><i class="fa fa-clock-o"></i>&nbsp;'.$row['date_stamp'].'</span><span><a class="btn btn-primary" href="'.base_url().'book-timeslot/'.$row['delivery_id'].'">View/Add Facilities</a></span></li>';
                     }
                     echo '</ul>';
                 }
