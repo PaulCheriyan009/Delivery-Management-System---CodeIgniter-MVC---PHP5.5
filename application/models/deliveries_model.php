@@ -159,7 +159,14 @@ class Deliveries_model extends CI_Model {
 		
 		return $query->result_array(); 	
     }
-
+    function update_individual_facility_status($link_id) {
+        $data = array(
+            'status' => 'success'
+        );
+        $this->db->where('id', $link_id);
+        $this->db->update('delivery_facility_link', $data);
+        return true;
+    }
     function count_deliveries($facility_id=null, $search_string=null, $order=null)
     {
         $this->db->select('deliveries.delivery_id');

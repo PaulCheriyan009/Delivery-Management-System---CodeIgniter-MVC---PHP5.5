@@ -63,6 +63,7 @@ $route['admin/deliveries/add_facility'] = 'admin_deliveries/add_facility';
 $route['admin/deliveries/add_facility/(:num)'] = 'admin_deliveries/add_facility/$1';
 $route['admin/deliveries/add_facility/(:num)/(:num)'] = 'admin_deliveries/add_facility/$1/$2';
 $route['admin/deliveries/add_facility/(:num)/(:num)/(:any)/(:any)'] = 'admin_deliveries/add_facility/$1/$2/$3/$4';
+$route['admin/deliveries/update_facility_status/(:num)'] = 'admin_deliveries/update_individual_facility_status/$1';
 // delete facilities from delivery
 $route['admin/deliveries/delete_facility/(:any)'] = 'admin_deliveries/delete_facility/$1';
 // put index pg pagination routing last otherwise stuff will f up.

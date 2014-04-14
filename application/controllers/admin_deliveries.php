@@ -288,8 +288,15 @@ class Admin_deliveries extends CI_Controller {
         $data['main_content'] = 'admin/deliveries/add';
         $this->load->view('includes/template', $data);
 //        redirect('admin/deliveries');
-    }       
-
+    }
+    public function update_individual_facility_status($link_id) {
+        $link_id = $this->uri->segment(4);
+        if($this->input->server('REQUEST_METHOD') === 'POST') {
+            $this->deliveries_model->update_individual_facility_status($link_id);
+        } else {
+            redirect(base_url());
+        }
+    }
     /**
     * Update item by his id
     * @return void

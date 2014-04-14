@@ -121,7 +121,9 @@ form label:first-child{
 .sidebar-nav {
   padding: 9px 0;
 }
-
+tr.success > td {
+    background-color:#F2FEF0 !important;
+}
 .form-signin {
   max-width: 300px;
   padding: 19px 29px 29px;

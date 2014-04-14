@@ -21,16 +21,17 @@
         echo '<legend>Current Facilities</legend>';
 
         if(count($delivery_info) > 0) {
-        echo '<div id="rows"><table class="table table-striped"><thead><th>ID</th><th>Name</th><th>Town/City</th><th>Postcode</th><th>Start Time</th></thead><tbody>';
+        echo '<div id="rows"><table class="table table-striped"><thead><th>ID</th><th>Name</th><th>Town/City</th><th>Postcode</th><th>Start Time</th><th>Status</th><th>&nbsp;</th><th>&nbsp;</th></thead><tbody>';
         foreach($delivery_info as $row) {
-            echo '<tr>';
+            echo '<tr class="'.$row['status'].'">';
             echo '<td>'.$row['facility_id'].'</td>';
             echo '<td>'.$row['facility_name'].'</td>';
             echo '<td>'.$row['facility_locality'].'</td>';
             echo '<td class="postcode">'.$row['facility_postcode'].'</td>';
             echo '<td>'.$row['start_time'].'</td>';
-            echo '<td></td>';
+            echo '<td>'.$row['status'].'</td>';
             echo '<td><a class="span1 delete-facility btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Remove</a>';
+            echo '<td><a class="span1 btn btn-success update-status" href="#"><i class="fa fa-check-square-o"></i> Done</a></td>';
             echo '<input id="link_id" name="id" type="hidden" value="'.$row['id'].'"/></td>';
             echo '</tr>';
         }
@@ -89,6 +90,18 @@ echo form_close();
             .done(function( msg ) {
                 $(this).parent().parent().fadeOut(500);
 //                    parent.$.fancybox.close();
+            });
+    });
+    // update status
+    $('#rows').on('click','a.update-status',function(e){
+        var link_id = $(this).parent().parent().find('input[type="hidden"]').val();
+        $.ajax({
+            type: "POST",
+            context: this,
+            url: base_url + 'admin/' + controller + "/update_facility_status/" + link_id
+        })
+            .done(function( msg ) {
+                $(this).parent().parent().addClass('success');
             });
     });
     // add facility
