@@ -80,7 +80,7 @@ class Users_model extends CI_Model {
                 'driver_last_name' => $this->input->post('lastname'),
                 'driver_dob' => $date_of_birth->format('Y-m-d'),
                 'driver_phone_number' => $this->input->post('phonenumber'),
-                'company_id' => $this->input->post('company_id'),
+                'company_id' => $_POST['company_id_hdn'],
                 'membership_id' => $id
             );
             $this->db->insert('drivers',$new_driver_insert_data);

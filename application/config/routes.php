@@ -78,6 +78,7 @@ $route['admin/facilities/(:any)'] = 'admin_facilities/index/$1'; //$1 = page num
 
 // drivers
 $route['admin/drivers'] = 'admin_drivers/index';
+$route['admin/drivers/delete/(:num)'] = 'admin_drivers/delete/$1';
 
 // vehicle search
 $route['admin/vehicles'] = 'admin_vehicles/index';

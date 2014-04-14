@@ -147,16 +147,19 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('firstname','First Name','required|trim');
         $this->form_validation->set_rules('lastname','Last Name','required|trim');
         $this->form_validation->set_rules('phonenumber','Phone Number','required|trim');
-        $this->form_validation->set_rules('driver_date_of_birth','Date of Birth','required|trim');
+        $this->form_validation->set_rules('driver_date_of_birth','Date of Birth','required');
         $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[membership.email_addres]|xss_clean');
         $this->form_validation->set_rules('confirmemail','Confirm Email','required|trim|matches[email]');
         $this->form_validation->set_rules('username','Username','required|trim');
+        $this->form_validation->set_rules('company_id_hdn','Company','required|trim');
         $this->form_validation->set_rules('password','Password','required|trim|min_length[4]|max_length[32]');
 
         $this->form_validation->set_message('is_unique',"That email address already exists");
 //        $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
 
         if ($this->form_validation->run() == false){
+            $this->load->model('suppliers_model');
+            $data['companies'] = $this->suppliers_model->get_suppliers();
             $data['main_content'] = 'frontend/view_register';
             $this->load->view('includes/frontend_template', $data);
         }
@@ -174,8 +177,9 @@ class User extends CI_Controller {
                     'driver_id' => $driver_id
                 );
                 $this->session->set_userdata($data);
-                $data['main_content'] = 'frontend/view_delivery_listing';
-                $this->load->view('includes/frontend_template', $data);
+//                $data['main_content'] = 'frontend/view_delivery_listing';
+//                $this->load->view('includes/frontend_template', $data);
+                redirect('your-deliveries');
             }
         }
 

@@ -52,7 +52,9 @@
             ?>
 
         </div>
-
+        <div class="alert alert-danger">
+            Warning: Deleting a driver will also delete their accompanying booking portal user account. Proceed with caution!
+        </div>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr>

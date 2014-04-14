@@ -68,4 +68,10 @@ class Drivers_model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+    function delete_driver($driver_id) {
+        $this->db->where('driver_id',$driver_id);
+        $this->db->delete('drivers');
+
+        // deletion will automatically cascade to record in Membership table.
+    }
 } 

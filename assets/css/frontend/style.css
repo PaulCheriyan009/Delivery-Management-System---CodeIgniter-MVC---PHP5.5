@@ -209,6 +209,10 @@ p.copyright {
     border-radius: 10px;
     padding:20px;
 }
+div.error {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
 div.error p {
     background-color: #F2DEDE;
     padding: 10px;

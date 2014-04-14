@@ -38,6 +38,23 @@
                     </div>
                 </div>
         </fieldset>
+        <fieldset id="company">
+            <legend>Your Company</legend>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Please choose your company</label>
+                    <?php
+                    $options_companies = array('' => "Select");
+                    foreach ($companies as $row)
+                    {
+                        $options_companies[$row['company_id']] = $row['company_name'];
+                    }
+                    echo form_dropdown('company_id',$options_companies);
+                    ?>
+                  <input type="hidden" name="company_id_hdn" id="company_id_hdn"/>
+                </div>
+            </div>
+        </fieldset>
         <fieldset id="credentials">
             <legend>Your Credentials</legend>
 
@@ -79,5 +96,10 @@
     $('#multipage').multipage({
         'stayLinkable':true,
         'submitLabel':'Register!'
+    });
+    $('select[name="company_id"]').ddslick({
+        onSelected: function(data) {
+            $('#company_id_hdn').val(data.selectedData.value);
+        }
     });
 </script>

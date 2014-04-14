@@ -145,5 +145,10 @@ class Admin_drivers extends CI_Controller {
         $this->load->view('includes/template', $data);
 
     }
+    public function delete($driver_id) {
+        $driver_id = $this->uri->segment(4);
+        $this->drivers_model->delete_driver($driver_id);
+        redirect('admin/drivers');
+    }
 
 } 
