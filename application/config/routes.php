@@ -42,6 +42,7 @@ $route['default_controller'] = 'frontend/home';
 $route['404_override'] = '';
 /*user/settings*/
 $route['admin'] = 'user/index';
+$route['admin/forbidden'] = 'user/unauthorized_access';
 $route['admin/signup'] = 'user/signup';
 $route['admin/create_member'] = 'user/create_member';
 $route['admin/login'] = 'user/index';

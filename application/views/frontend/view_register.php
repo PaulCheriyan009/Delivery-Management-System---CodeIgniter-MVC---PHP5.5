@@ -35,6 +35,7 @@
                     <div class="col-md-3">
                         <label>Date of Birth</label>
                         <input type="text" class="form-control datepicker" name="driver_date_of_birth" placeholder="Date of Birth">
+                        <input type="hidden" name="dob_hidden" id="date_hdn"/>
                     </div>
                 </div>
         </fieldset>

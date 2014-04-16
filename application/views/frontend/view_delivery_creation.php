@@ -1,9 +1,9 @@
 <style>
     <?php include 'assets/css/frontend/bookingscreen.css' ?>
 </style>
-<div class="container">
+<div class="container-fluid dark-background">
     <div class="row">
-        <div id="main">
+        <div id="main" class="pane">
             <h1>New Delivery</h1>
             <p class="lead">
                 Please use the form below to create a new delivery.</p>

@@ -17,7 +17,6 @@ class Admin_drivers extends CI_Controller {
         }
     }
     public function index() {
-        $this->output->enable_profiler(TRUE);
         //all the posts sent by the view
         $search_string = $this->input->post('search_string');
         $order = $this->input->post('order');
@@ -61,22 +60,9 @@ class Admin_drivers extends CI_Controller {
         //make the data type var avaible to our view
         $data['order_type_selected'] = $order_type;
 
-
-        //we must avoid a page reload with the previous session data
-        //if any filter post was sent, then it's the first time we load the content
-        //in this case we clean the session filter data
-        //if any filter post was sent but we are in some page, we must load the session data
-
         //filtered && || paginated
         if($search_string !== false && $order !== false || $this->uri->segment(3) == true){
 
-            /*
-            The comments here are the same for line 79 until 99
-
-            if post is not null, we store it in session data array
-            if is null, we use the session data already stored
-            we save order into the the var to load the view with the param already selected
-            */
             if($search_string){
                 $filter_session_data['search_string_selected'] = $search_string;
             }else{
@@ -135,7 +121,7 @@ class Admin_drivers extends CI_Controller {
             $data['drivers'] = $this->drivers_model->get_drivers('', '', $order_type, $config['per_page'],$limit_end);
             $config['total_rows'] = $data['count_drivers'];
 
-        }//!isset($search_string) && !isset($order)
+        }
 
         //initializate the panination helper
         $this->pagination->initialize($config);

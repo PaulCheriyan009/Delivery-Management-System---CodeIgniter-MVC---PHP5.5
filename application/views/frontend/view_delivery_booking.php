@@ -1,22 +1,24 @@
 <style>
     <?php include 'assets/css/frontend/bookingscreen.css' ?>
 </style>
-<div class="container">
+<div class="container-fluid dark-background">
     <div class="row">
-<div id="main">
+<div id="main" class="pane">
     <div class="current-facilities">
         <h1>Current Facilities</h1>
-        <p class="lead">
-            Here are the facilities that this delivery is currently set to visit. If you think that you are visiting a facility in error, or if there is another problem, please contact your DMS administrator.
-        </p>
         <hr>
         <?php
         if(!empty($items)) {
+            echo '<p class="lead">
+            Here are the facilities that this delivery is currently set to visit. If you think that you are visiting a facility in error, or if there is another problem, please contact your DMS administrator.
+        </p>';
             echo '<ul class="delivery-listing">';
             foreach ($items as $row) {
                 echo '<li><span>'.$row['facility_name'].'</span><span><i class="fa fa-clock-o"></i>&nbsp;'.$row['start_time'].'</span></li>';
             }
             echo '</ul>';
+        } else {
+            echo '<div class="alert alert-info"><p class="lead">Sorry but there are no facilities added to this delivery.</p></div>';
         }
         ?>
     </div>

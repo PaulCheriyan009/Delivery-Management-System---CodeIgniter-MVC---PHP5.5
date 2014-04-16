@@ -99,13 +99,17 @@ class Deliveries_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
-    public function get_delivery_with_facility($id) {
+    public function get_delivery_with_facility($id,$order = null) {
         $this->db->select('*');
         $this->db->from('deliveries');
         $this->db->where('deliveries.delivery_id', $id);
         $this->db->join('delivery_facility_link','deliveries.delivery_id = delivery_facility_link.delivery_id','inner');
         $this->db->join('facilities','delivery_facility_link.facility_id = facilities.facility_id','inner');
-        $this->db->order_by('delivery_facility_link.id','asc');
+        if(is_null($order)) {
+            $this->db->order_by('delivery_facility_link.id','asc');
+        } else {
+            $this->db->order_by('delivery_facility_link.start_time', 'asc');
+        }
         $this->db->group_by('delivery_facility_link.facility_id');
 
         $query = $this->db->get();
@@ -165,7 +169,35 @@ class Deliveries_model extends CI_Model {
         );
         $this->db->where('id', $link_id);
         $this->db->update('delivery_facility_link', $data);
+
+        $delivery_id = $this->get_delivery_id_for_link_id($link_id);
+        // then check to see if all in linking table are complete
+        $normal_count = $this->get_facility_count_for_delivery($delivery_id);
+        $done_count = $this->get_facility_count_for_delivery($delivery_id,'success');
+        if($normal_count = $done_count) {
+            $data_to_store = array(
+                'status_id' => 5
+            );
+            $this-> update_delivery($delivery_id,$data_to_store);
+        }
         return true;
+    }
+    function get_delivery_id_for_link_id($link_id) {
+        $this->db->select('delivery_id');
+        $this->db->from('delivery_facility_link');
+        $this->db->where('id',$link_id);
+        $query = $this->db->get();
+        return $query->row()->delivery_id;
+    }
+    function get_facility_count_for_delivery($delivery_id,$status = null) {
+        $this->db->select('count(delivery_id) as theCount');
+        $this->db->from('delivery_facility_link');
+        $this->db->where('delivery_id',$delivery_id);
+        if($status != null) {
+            $this->db->where('status',$status);
+        }
+        $query = $this->db->get();
+        return $query->row()->theCount;
     }
     function count_deliveries($facility_id=null, $search_string=null, $order=null)
     {

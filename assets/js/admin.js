@@ -12,14 +12,7 @@ var Admin = {
 };
 var selectedID = $('#selectedID');
 
-//$('#close-fancybox').click(function(e) {
-//    parent.$.fancybox.close();
-//});
 $(function(){
-//    $('#deliveryid').val($('#selectedID',window.parent.document).val());
-//    $('.fancybox').click(function(e){
-//        selectedID.val($(this).parent().find('input[type="hidden"]').val());
-//    });
     // date pick on fields
     $('.datepicker').datepicker({
         dateFormat:"dd-mm-yy",

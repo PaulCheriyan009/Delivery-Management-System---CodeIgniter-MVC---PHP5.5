@@ -1,4 +1,9 @@
-<!DOCTYPE html> 
+<?php
+    if($this->session->userdata('driver_id')) {
+        redirect('admin/forbidden');
+    }
+?>
+<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <title>Delivery Management System 2014</title>
@@ -12,10 +17,8 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery.fancybox.pack.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery-ui-timepicker-addon.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/admin.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery.validate.min.js"></script>
     <!-- morris graphing -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

@@ -68,17 +68,19 @@ class User extends CI_Controller {
 
         if($is_valid)
         {
-            $user_id = $this->Users_model->get_user_id_by_user_name($this->input->post('username'));
+            $user_id = $this->Users_model->get_user_id_by_email_address($this->input->post('email'));
             $driver_id = $this->Users_model->get_driver_id($user_id);
+            $first_name = $this->Users_model->get_user_first_name($user_id);
             $data = array(
                 'is_logged_in' => true,
                 'user_id' => $user_id,
-                'driver_id' => $driver_id
+                'driver_id' => $driver_id,
+                'first_name' => $first_name
             );
             $this->session->set_userdata($data);
 
             // default view redirect
-            redirect(base_url().'your-deliveries');
+            redirect(base_url());
         } else // incorrect username or password
         {
             $data['message_error'] = TRUE;
@@ -169,17 +171,19 @@ class User extends CI_Controller {
 
             if($query = $this->Users_model->create_driver_member())
             {
-                $user_id = $this->Users_model->get_user_id_by_user_name($this->input->post('username'));
+                $user_id = $this->Users_model->get_user_id_by_email_address($this->input->post('email'));
                 $driver_id = $this->Users_model->get_driver_id($user_id);
+                $first_name = $this->Users_model->get_user_first_name($user_id);
                 $data = array(
                     'is_logged_in' => true,
                     'user_id' => $user_id,
-                    'driver_id' => $driver_id
+                    'driver_id' => $driver_id,
+                    'first_name' => $first_name
                 );
                 $this->session->set_userdata($data);
 //                $data['main_content'] = 'frontend/view_delivery_listing';
 //                $this->load->view('includes/frontend_template', $data);
-                redirect('your-deliveries');
+                redirect(base_url());
             }
         }
 
@@ -197,5 +201,8 @@ class User extends CI_Controller {
     {
         $this->session->sess_destroy();
         redirect('');
+    }
+    function unauthorized_access() {
+        $this->load->view('admin/error_unauthorized');
     }
 }

@@ -40,41 +40,41 @@
         } else {
             echo '<div id="rows"><p>Sorry but there are no facilities linked to this delivery. Add some below.</p></div>';
         }//end check for array length
-        echo form_open('admin/deliveries/add_facility', $attributes);
-
-            echo '<fieldset class="fancybox"><legend>Add New Facility</legend>';
-//            echo '<p class="well">Please select a facility from the dropdown below to add it to your chosen delivery</p>';
-            echo '<label for="delivery_id">Delivery ID</label>';
-            $options = array(
-                'name' => 'delivery_id',
-                'id' => 'delivery_id',
-                'disabled' => 'true',
-                'value' => $delivery_id,
-                'readonly' => 'readonly'
-            );
-            echo form_input($options);
-            $time_opts1 = array(
-              'class' => 'time_picker',
-              'name' => 'authorization_start_time'
-            );
-            echo '<label for="authorization_start_time">Authorization Start Time</label>';
-            echo form_input($time_opts1);
-            echo '<label for="facility_id">Facility</label>';
-//            echo '<div class="control-group">';
-//            echo '<div class="controls">';
-              echo form_dropdown('facility_id', $options_facility, set_value('facility_id'), 'class="span3" id="facility_id"');
-            $button_class = array('class' => 'btn btn-primary');
-//            echo form_submit($button_class, 'Add Facility!');
-//            echo '</div>';
-          echo '</fieldset>';
-
-
-        echo '<div class="form-actions">';
-
-//        echo form_submit($button_class, 'Save Changes');
-    echo '<button id="submitFacility" type="button" data-loading-text="Loading..." class="btn btn-primary">Save changes</button>';
-    echo '<a id="close-fancybox" class="btn">Cancel</a></div>';
-echo form_close();
+//        echo form_open('admin/deliveries/add_facility', $attributes);
+//
+//            echo '<fieldset class="fancybox"><legend>Add New Facility</legend>';
+////            echo '<p class="well">Please select a facility from the dropdown below to add it to your chosen delivery</p>';
+//            echo '<label for="delivery_id">Delivery ID</label>';
+//            $options = array(
+//                'name' => 'delivery_id',
+//                'id' => 'delivery_id',
+//                'disabled' => 'true',
+//                'value' => $delivery_id,
+//                'readonly' => 'readonly'
+//            );
+//            echo form_input($options);
+//            $time_opts1 = array(
+//              'class' => 'time_picker',
+//              'name' => 'authorization_start_time'
+//            );
+//            echo '<label for="authorization_start_time">Authorization Start Time</label>';
+//            echo form_input($time_opts1);
+//            echo '<label for="facility_id">Facility</label>';
+////            echo '<div class="control-group">';
+////            echo '<div class="controls">';
+//              echo form_dropdown('facility_id', $options_facility, set_value('facility_id'), 'class="span3" id="facility_id"');
+//            $button_class = array('class' => 'btn btn-primary');
+////            echo form_submit($button_class, 'Add Facility!');
+////            echo '</div>';
+//          echo '</fieldset>';
+//
+//
+//        echo '<div class="form-actions">';
+//
+////        echo form_submit($button_class, 'Save Changes');
+//    echo '<button id="submitFacility" type="button" data-loading-text="Loading..." class="btn btn-primary">Save changes</button>';
+//    echo '<a id="close-fancybox" class="btn">Cancel</a></div>';
+//echo form_close();
 ?>
 </div>
 <script>

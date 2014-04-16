@@ -5,8 +5,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-message">
-                    <h1>Open for business</h1>
-                    <h3>The Delivery Management System 2014</h3>
+                    <?php
+                    if(!$this->session->userdata('is_logged_in')) {
+                        echo '<h1>Open for business</h1><h3>The Delivery Management System 2014</h3>';
+                    } else {
+                        echo '<h1>Hello '.$this->session->userdata('first_name').'!</h1><h3>Welcome to the new booking portal.</h3>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -19,7 +24,7 @@
 
 
 
-
+<?php if(!$this->session->userdata('is_logged_in')) { ?>
 <div class="content-section-a">
 
     <div class="container">
@@ -60,7 +65,6 @@
                 <img class="img-responsive" src="<?php echo base_url(); ?>assets/img/doge.png" alt="">
             </div>
         </div>
-
     </div>
     <!-- /.container -->
 
@@ -87,6 +91,6 @@
 
     </div>
     <!-- /.container -->
-
+    <? } ?>
 </div>
 <!-- /.banner -->

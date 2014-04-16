@@ -10,7 +10,7 @@
         <button class="btn btn-lg btn-primary btn-block" value="login" type="submit">Sign in</button>
         <?php
         if(isset($message_error)) {
-            echo '<div class="error"><p>Sorry, but you cannot access this area</p></div>';
+            echo '<div class="error"><p>Sorry, but your username or password is incorrect.</p></div>';
         }
         ?>
 </form>

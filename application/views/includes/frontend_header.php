@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if(!$this->session->userdata('driver_id')) {
+    redirect('admin/forbidden');
+}
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url(); ?>">Delivery Management System 2014</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>"><i class="fa fa-truck"></i> Delivery Management System 2014</a>
         </div>
 
         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">

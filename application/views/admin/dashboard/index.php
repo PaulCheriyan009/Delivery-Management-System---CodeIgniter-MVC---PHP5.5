@@ -56,40 +56,60 @@
             <div class="span4 pagination-centered">
                 <div class="items">
                     <ul>
-<!--                        --><?php
-//                        foreach($in_progress_deliveries as $row) {
-//                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td><i class="fa fa-clock-o"></i> '.$row['time_stamp'].'</td><td></td><td>test</td></tbody></table></li>';
-//                        }
-//                        ?>
+                    <?php
+                    if(!empty($in_progress_deliveries)) {
+                        foreach($in_progress_deliveries as $row) {
+                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                        }
+                    } else {
+                        echo '<li>Sorry, no results.</li>';
+                    }
+                      ?>
                     </ul>
                 </div>
             </div>
             <div class="span4 pagination-centered">
                 <div class="items">
                     <ul>
-                        <li>Test item</li>
-                        <li>Test item 2</li>
+                        <?php
+                        if(!empty($booked_deliveries)) {
+                            foreach($booked_deliveries as $row) {
+                                echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                            }
+                        } else {
+                            echo '<li>Sorry, no results.</li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
             <div class="span4 pagination-centered">
                 <div class="items">
                     <ul>
-                        <li>Test item</li>
+                        <?php
+                        if(!empty($expired_deliveries)) {
+                            foreach($expired_deliveries as $row) {
+                                echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                            }
+                        } else {
+                            echo '<li>Sorry, no results.</li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
         </div>
         <hr>
         <!-- begin graphs -->
+        <h3>Deliveries (Past 5 Days)</h3>
+        <hr>
         <div class="row-fluid">
             <div id="graph1" class="span6 pagination-centered">
-                test
             </div>
             <div class="span6 pagination-centered">
-                test
             </div>
         </div>
+        <h3></h3>
     </div>
 </div>
 <script>
@@ -110,6 +130,7 @@
                     data: data,
                     // The name of the data record attribute that contains x-values.
                     xkey: 'Date',
+                    parseTime: false,
                     // A list of names of data record attributes that contain y-values.
                     ykeys: ['Quantity'],
                     // Labels for the ykeys -- will be displayed when you hover over the

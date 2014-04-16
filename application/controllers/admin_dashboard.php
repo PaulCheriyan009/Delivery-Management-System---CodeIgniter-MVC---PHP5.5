@@ -21,7 +21,8 @@ class Admin_dashboard extends CI_Controller {
         // load custom dashboard pg into view
         $data['main_content'] = 'admin/dashboard/index';
         $data['in_progress_count'] = $this->deliveries_model->get_deliveries_by_status_count(2);
-
+        $data['booked_deliveries'] = $this->deliveries_model->get_deliveries_by_status(1);
+        $data['expired_deliveries'] = $this->deliveries_model->get_deliveries_by_status(4);
         $data['in_progress_deliveries'] = $this->deliveries_model->get_deliveries_by_status(2);
         $this->load->view('includes/template', $data);
     }

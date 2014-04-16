@@ -74,7 +74,7 @@ class Users_model extends CI_Model {
             //select top id from membership table
             $id = $this->db->query('select id from membership order by id desc limit 1')->row()->id;
             // then insert accompanying record into drivers table
-            $date_of_birth = DateTime::createFromFormat('d-m-Y',$this->input->post('driver_date_of_birth'));
+            $date_of_birth = DateTime::createFromFormat('d-m-Y',$_POST['dob_hidden']);
             $new_driver_insert_data = array(
                 'driver_first_name' => $this->input->post('firstname'),
                 'driver_last_name' => $this->input->post('lastname'),
@@ -140,19 +140,27 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
-    function get_user_id_by_user_name($user_name) {
+    function get_user_id_by_email_address($email_address) {
         $this->db->select('id');
         $this->db->from('membership');
-        $this->db->where('user_name',$user_name);
+        $this->db->where('email_addres',$email_address);
         $query = $this->db->get();
         return $query->row()->id;
     }
     function get_driver_id($user_id) {
-        $this->db->select('driver_id');
-        $this->db->from('drivers');
+        $this->db->select('drivers.driver_id');
+        $this->db->from('membership');
+        $this->db->join('drivers','membership.id = drivers.membership_id','inner');
         $this->db->where('membership_id',$user_id);
         $query = $this->db->get();
         return $query->row()->driver_id;
+    }
+    function get_user_first_name($user_id) {
+        $this->db->select('first_name');
+        $this->db->from('membership');
+        $this->db->where('id',$user_id);
+        $query = $this->db->get();
+        return $query->row()->first_name;
     }
 }
 
