@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-if(!$this->session->userdata('driver_id')) {
-    redirect('admin/forbidden');
+if($this->session->userdata('is_logged_in')) {
+    if(!$this->session->userdata('driver_id')) {
+        redirect('admin/forbidden');
+    }
 }
 ?>
 <head>
