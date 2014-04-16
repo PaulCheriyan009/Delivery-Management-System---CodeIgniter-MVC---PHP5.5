@@ -7,7 +7,7 @@
                 <div class="intro-message">
                     <?php
                     if(!$this->session->userdata('is_logged_in')) {
-                        echo '<h1>Open for business</h1><h3>The Delivery Management System 2014</h3>';
+                        echo '<h1>Open for business</h1><h3>Welcome to the new Delivery Management System 2014</h3><p style="margin-top:20px;"><a href="register" style="padding:15px 26px;" class="btn btn-primary btn-primary btn-lg">Get Started Now!</a></p>';
                     } else {
                         echo '<h1>Hello '.$this->session->userdata('first_name').'!</h1><h3>Welcome to the new booking portal.</h3>';
                     }
@@ -77,13 +77,13 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <h2>Quick Links</h2>
+                <h2>Useful Links</h2>
             </div>
             <div class="col-lg-6">
                 <ul class="list-inline banner-social-buttons">
                     <li><a href="<?php echo base_url(); ?>login" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i> <span class="network-name">Login</span></a>
                     </li>
-                    <li><a href="<?php echo base_url(); ?>register" class="btn btn-default btn-lg"><i class="fa fa-chevron-circle-right fa-fw"></i> <span class="network-name">Sign Up</span></a>
+                    <li><a href="<?php echo base_url(); ?>register" class="btn btn-default btn-lg"><i class="fa fa-pencil-square-o"></i> <span class="network-name">Sign Up</span></a>
                     </li>
                 </ul>
             </div>

@@ -41,6 +41,7 @@
         </fieldset>
         <fieldset id="company">
             <legend>Your Company</legend>
+            <p class="well">Ensure that you choose the correct company as you will not be able to change this later.</p>
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Please choose your company</label>
@@ -58,7 +59,7 @@
         </fieldset>
         <fieldset id="credentials">
             <legend>Your Credentials</legend>
-
+            <p class="well">Please choose a strong password; if you forget your password, please contact the system administrator.</p>
             <div class="form-group">
                 <div class="col-md-3">
                     <label>Email</label>

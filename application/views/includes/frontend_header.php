@@ -48,13 +48,13 @@ if($this->session->userdata('is_logged_in')) {
             <ul class="nav navbar-nav">
                 <?php
                 if(!$this->session->userdata('is_logged_in')) {
-                    echo '<li><a href="'.base_url().'register">Register</a></li>
-                 <li><a href="'.base_url().'login">Login</a></li>
+                    echo '<li><a href="'.base_url().'register"><i class="fa fa-pencil-square-o"></i> Register</a></li>
+                 <li><a href="'.base_url().'login"><i class="fa fa-sign-in"></i> Login</a></li>
                  <li><a href="'.base_url().'admin">Admin Log In</a></li>';
                 } else {
                     echo '<li><a href="'.base_url().'your-deliveries">Your Deliveries</a></li>
                  <li><a href="'.base_url().'create-delivery">New Delivery</a></li>
-                 <li><a href="'.base_url().'logout">Logout</a></li>';
+                 <li><a href="'.base_url().'logout"><i class="fa fa-sign-out"></i> Logout</a></li>';
                 }
                 ?>
 
