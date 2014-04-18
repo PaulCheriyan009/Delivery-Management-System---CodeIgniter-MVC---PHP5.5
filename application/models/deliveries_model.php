@@ -16,7 +16,7 @@ class Deliveries_model extends CI_Model {
         $this->db->from('deliveries');
         $this->db->where('delivery_id',$delivery_id);
         $q = $this->db->get();
-        return $q->result_array();
+        return $q->row()->date_stamp;
     }
     public function delete_facility_from_existing_delivery($delivery_facility_link_id) {
         $this->db->where('id', $delivery_facility_link_id);

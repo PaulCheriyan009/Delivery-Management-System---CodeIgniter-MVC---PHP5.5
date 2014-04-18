@@ -108,5 +108,8 @@ $route['create-delivery'] = 'frontend/book/create_delivery';
 $route['book-timeslot/(:num)'] = 'frontend/book/index/$1';
 $route['get-facility-timeslots/(:num)/(:any)'] = 'frontend/book/get_timeslots/$1/$2';
 $route['add-timeslot/(:num)/(:num)/(:any)/(:any)'] = 'frontend/book/add_timeslot/$1/$2/$3/$4';
+
+// and finally lightweight unit testing suite
+$route['unit-tests'] = 'tests/index';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
