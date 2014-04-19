@@ -231,6 +231,7 @@ class Admin_vehicles extends CI_Controller {
                 );
                 if($this->vehicles_model->store_vehicle($data_to_store) == TRUE){
                     $this->session->set_flashdata('flash_message', 'updated');
+                    redirect('admin/vehicles');
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }

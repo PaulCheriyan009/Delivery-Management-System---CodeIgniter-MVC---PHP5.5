@@ -67,14 +67,12 @@
             <label for="inputError" class="control-label">Date</label>
             <div class="controls">
               <input type="text" class="datepicker" id="" name="date_stamp" value="<?php echo set_value('date_stamp'); ?>">
-              <!--<span class="help-inline">Cost Price</span>-->
             </div>
           </div>          
           <div class="control-group">
             <label for="inputError" class="control-label">Earliest Start Time</label>
             <div class="controls">
               <input type="text" id="deliverytime" name="time_stamp" value="<?php echo set_value('time_stamp'); ?>">
-              <!--<span class="help-inline">Cost Price</span>-->
             </div>
           </div>
             <div class="control-group">
@@ -83,7 +81,6 @@
                     <input type="text" id="vehicle_registration" name="vehicle_registration">
                     <input type="hidden" id="vehicle_id" name="vehicle_id"/>
                     <p class="form-message">Please begin typing your vehicle's registration and you will be provided with results to best match your vehicle</p>
-                    <!--<span class="help-inline">OOps</span>-->
                 </div>
             </div>
             <!-- driver id -->
@@ -93,7 +90,6 @@
                     <?php
                     echo form_dropdown('driver_id', $options_drivers, 'class="span2"');
                     ?>
-                    <!--<span class="help-inline">OOps</span>-->
                 </div>
             </div>
             <!-- set initial status -->
@@ -103,14 +99,12 @@
                     <?php
                     echo form_dropdown('status_id', $options_status, 'class="span2"');
                     ?>
-                    <!--<span class="help-inline">OOps</span>-->
                 </div>
             </div>
             <div class="control-group">
                 <label for="inputError" class="control-label">Description</label>
                 <div class="controls">
                     <input type="text" id="description" name="description" value="<?php echo set_value('description'); ?>" >
-                    <!--<span class="help-inline">Woohoo!</span>-->
                 </div>
             </div>
           <div class="form-actions">

@@ -33,8 +33,7 @@
                     <th class="yellow header headerSortDown">Registration No.</th>
                     <th class="yellow header headerSortDown">Make</th>
                     <th class="yellow header headerSortDown">Model</th>
-                    <th class="yellow header headerSortDown">Year of Production / Creation</th>
-                    <th class="yellow header headerSortDown">Phone Number</th>
+                    <th class="yellow header headerSortDown">Year of Production</th>
                 </tr>
                 </thead>
                 <tbody>

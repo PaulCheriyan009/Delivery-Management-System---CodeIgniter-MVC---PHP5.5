@@ -174,7 +174,8 @@ class Deliveries_model extends CI_Model {
         // then check to see if all in linking table are complete
         $normal_count = $this->get_facility_count_for_delivery($delivery_id);
         $done_count = $this->get_facility_count_for_delivery($delivery_id,'success');
-        if($normal_count = $done_count) {
+        print_r($normal_count.'-'.$done_count);
+        if($normal_count == $done_count) {
             $data_to_store = array(
                 'status_id' => 5
             );

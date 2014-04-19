@@ -12,6 +12,7 @@ class Users_model extends CI_Model {
 	{
 		$this->db->where('user_name', $user_name);
 		$this->db->where('pass_word', $password);
+        $this->db->where('membership_type_id !=','4');
 		$query = $this->db->get('membership');
 		
 		if($query->num_rows == 1)
@@ -107,10 +108,10 @@ class Users_model extends CI_Model {
 			$new_member_insert_data = array(
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
-				'email_addres' => $this->input->post('email_address'),			
+				'email_addres' => $this->input->post('email_addres'),
 				'user_name' => $this->input->post('username'),
 				'pass_word' => md5($this->input->post('password')),
-                'membership_type_id' => $this->input->post('membership_type_id')
+                'membership_type_id' => 3
 			);
 			$insert = $this->db->insert('membership', $new_member_insert_data);
 		    return $insert;

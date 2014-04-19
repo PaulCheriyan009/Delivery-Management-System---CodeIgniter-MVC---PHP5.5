@@ -13,9 +13,10 @@
 
     <div class="row">
         <div class="span12 columns">
-
+        <h1>All Drivers</h1>
+        <hr>
         <div class="alert alert-danger">
-            Warning: Deleting a driver will also delete their accompanying booking portal user account. Proceed with caution!
+            Warning: Deleting a driver will also delete their accompanying booking portal user account. <strong>Proceed with caution!</strong>
         </div>
         <table class="table table-striped table-bordered table-condensed">
             <thead>

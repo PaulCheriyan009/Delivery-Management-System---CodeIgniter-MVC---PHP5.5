@@ -35,7 +35,7 @@
                 echo '<td>-</td>';
             }
             echo '<td><a class="span1 delete-facility btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Remove</a>';
-            echo '<td><a class="span1 btn btn-success update-status" href="#"><i class="fa fa-check-square-o"></i> Done</a></td>';
+            echo '<td><a class="span1 btn btn-success update-status" href="#"><i class="fa fa-check-square-o"></i> Check Out</a></td>';
             echo '<input id="link_id" name="id" type="hidden" value="'.$row['id'].'"/></td>';
             echo '</tr>';
         }
