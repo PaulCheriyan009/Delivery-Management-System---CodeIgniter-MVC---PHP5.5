@@ -25,7 +25,7 @@ class Tests extends CI_Controller {
         // runs all tests with output on screen
 
         $this->unit->run($this->deliveries_model->get_todays_deliveries_count(),'is_int','Todays delivery count function returns an integer');
-        $this->unit->run($this->deliveries_model->get_date_of_delivery(37),'is_string','get_date_of_delivery($delivery_id) returns date as string');
+        $this->unit->run($this->deliveries_model->get_date_of_delivery(37),'is_array','get_date_of_delivery($delivery_id) returns array');
 
         $this->unit->run($this->deliveries_model->get_todays_new_deliveries(), 'is_array','get_todays_new_deliveries() function returns an array');
         $this->unit->run($this->deliveries_model->get_free_delivery_timeslots(6,'2014-04-04'),'is_array','get_free_delivery_timeslots($facility_id,$date_stamp) returns an array of timeslots');

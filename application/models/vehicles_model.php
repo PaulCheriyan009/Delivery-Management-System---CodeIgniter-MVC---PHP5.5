@@ -47,7 +47,13 @@ class Vehicles_model extends CI_Model {
 
         return $query->result_array();
     }
-
+    function get_vehicle_by_id($vehicle_id) {
+        $this->db->select('*');
+        $this->db->from('vehicles');
+        $this->db->like('vehicle_id',$vehicle_id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     /**
      * Count the number of rows
      * @param int $search_string
@@ -68,6 +74,26 @@ class Vehicles_model extends CI_Model {
         }
         $query = $this->db->get();
         return $query->num_rows();
+    }
+    function store_vehicle($data)
+    {
+        $insert = $this->db->insert('vehicles', $data);
+        return $insert;
+    }
+
+    function update_vehicle($vehicle_id, $data) {
+        $this->db->set($data);
+        $this->db->where('vehicles_table.vehicle_id', $vehicle_id);
+        $this->db->update('vehicles as vehicles_table');
+
+        $report = array();
+        $report['error'] = $this->db->_error_number();
+        $report['message'] = $this->db->_error_message();
+        if($report !== 0){
+            return true;
+        }else{
+            return false;
+        }
     }
     function delete_vehicle($id){
         $this->db->where('vehicle_id', $id);

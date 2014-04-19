@@ -11,47 +11,9 @@
         </li>
     </ul>
 
-    <div class="page-header users-header">
-        <h2>
-            <?php echo ucfirst($this->uri->segment(2));?>
-            <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success">Add a new driver</a>
-        </h2>
-    </div>
-
     <div class="row">
         <div class="span12 columns">
-            <div class="well">
-            <?php
-            $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
 
-            //save the columns names in a array that we will use as filter
-            $options_suppliers = array();
-            foreach ($suppliers as $array) {
-                foreach ($array as $key => $value) {
-                    $options_suppliers[$key] = $key;
-                }
-                break;
-            }
-
-            echo form_open('admin/drivers', $attributes);
-
-            echo form_label('Search:', 'search_string');
-            echo form_input('search_string', $search_string_selected);
-
-            echo form_label('Order by:', 'order');
-            echo form_dropdown('order', $options_suppliers, $order, 'class="span2"');
-
-            $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Go');
-
-            $options_order_type = array('Asc' => 'Asc', 'Desc' => 'Desc');
-            echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span1"');
-
-            echo form_submit($data_submit);
-
-            echo form_close();
-            ?>
-
-        </div>
         <div class="alert alert-danger">
             Warning: Deleting a driver will also delete their accompanying booking portal user account. Proceed with caution!
         </div>

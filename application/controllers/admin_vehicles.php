@@ -13,6 +13,7 @@ class Admin_vehicles extends CI_Controller {
 //        $this->load->model('deliveries_model');
 //        $this->load->model('facilities_model');
         $this->load->model('vehicles_model');
+        $this->load->model('suppliers_model');
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
         }
@@ -173,5 +174,76 @@ class Admin_vehicles extends CI_Controller {
         {
             $this->load->view('autocomplete/index',$data); //Load html view of search results
         }
+    }
+
+    public function update($vehicle_id) {
+
+        $vehicle_id = $this->uri->segment(4);
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+
+            //form validation
+            $this->form_validation->set_rules('vehicle_registration', 'Registration', 'required');
+            $this->form_validation->set_rules('vehicle_make', 'Make', 'required');
+            $this->form_validation->set_rules('vehicle_model', 'Model', 'required');
+            $this->form_validation->set_rules('vehicle_year_of_production', 'Year of Production', 'required');
+            $this->form_validation->set_rules('company_id','Company','required');
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+
+            if ($this->form_validation->run())
+            {
+                $data_to_store = array(
+                  'vehicle_registration' => $this->input->post('vehicle_registration'),
+                  'vehicle_make' => $this->input->post('vehicle_make'),
+                  'vehicle_model' => $this->input->post('vehicle_model'),
+                  'vehicle_year_of_production' => $this->input->post('vehicle_year_of_production'),
+                  'company_id' => $this->input->post('company_id')
+                );
+                if($this->vehicles_model->update_vehicle($vehicle_id, $data_to_store) == TRUE){
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+            }
+        }
+        $data['companies'] = $this->suppliers_model->get_suppliers();
+        $data['vehicle'] = $this->vehicles_model->get_vehicle_by_id($vehicle_id);
+        $data['main_content'] = 'admin/vehicles/edit';
+        $this->load->view('includes/template',$data);
+    }
+
+    public function add() {
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            $this->form_validation->set_rules('vehicle_registration', 'Registration', 'required');
+            $this->form_validation->set_rules('vehicle_make', 'Make', 'required');
+            $this->form_validation->set_rules('vehicle_model', 'Model', 'required');
+            $this->form_validation->set_rules('vehicle_year_of_production', 'Year of Production', 'required');
+            $this->form_validation->set_rules('company_id','Company','required');
+            if ($this->form_validation->run())
+            {
+                $data_to_store = array(
+                    'vehicle_registration' => $this->input->post('vehicle_registration'),
+                    'vehicle_make' => $this->input->post('vehicle_make'),
+                    'vehicle_model' => $this->input->post('vehicle_model'),
+                    'vehicle_year_of_production' => $this->input->post('vehicle_year_of_production'),
+                    'company_id' => $this->input->post('company_id')
+                );
+                if($this->vehicles_model->store_vehicle($data_to_store) == TRUE){
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+            }
+
+        }
+        $data['companies'] = $this->suppliers_model->get_suppliers();
+        $data['main_content'] = 'admin/vehicles/add';
+        $this->load->view('includes/template',$data);
+    }
+    public function delete($vehicle_id){
+        $vehicle_id = $this->uri->segment(4);
+        $this->vehicles_model->delete_vehicle($vehicle_id);
+        redirect('admin/vehicles');
     }
 }

@@ -81,12 +81,17 @@ $route['admin/facilities/(:any)'] = 'admin_facilities/index/$1'; //$1 = page num
 // drivers
 $route['admin/drivers'] = 'admin_drivers/index';
 $route['admin/drivers/delete/(:num)'] = 'admin_drivers/delete/$1';
+$route['admin/drivers/update/(:num)'] = 'admin_drivers/update/$1';
+$route['admin/drivers/add'] = 'admin_drivers/add';
+$route['admin/drivers/(:any)'] = 'admin_drivers/index/$1';
 
 // vehicle search
 $route['admin/vehicles'] = 'admin_vehicles/index';
+$route['admin/vehicles/update/(:num)'] = 'admin_vehicles/update/$1';
+$route['admin/vehicles/add'] = 'admin_vehicles/add';
 $route['admin/vehicles/get_vehicle_by_registration'] = 'admin_vehicles/get_vehicle_by_registration/$1';
 $route['admin/vehicles/get_vehicle_by_registration/(:any)'] = 'admin_vehicles/get_vehicle_by_registration/$1';
-
+$route['admin/vehicles/delete/(:num)'] = 'admin_vehicles/delete/$1';
 
 /* supplier routes */
 $route['admin/suppliers'] = 'admin_suppliers/index';

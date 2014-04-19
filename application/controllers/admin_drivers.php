@@ -85,7 +85,7 @@ class Admin_drivers extends CI_Controller {
 
             //fetch sql data into arrays
             $data['count_drivers']= $this->drivers_model->count_drivers($search_string, $order);
-            $config['total_rows'] = $data['count_deliveries'];
+            $config['total_rows'] = $data['count_drivers'];
 
             //fetch sql data into arrays
             if($search_string){
@@ -130,6 +130,47 @@ class Admin_drivers extends CI_Controller {
         $data['main_content'] = 'admin/drivers/list';
         $this->load->view('includes/template', $data);
 
+    }
+    public function update($driver_id) {
+        $driver_id = $this->uri->segment(4);
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            //form validation
+            $this->form_validation->set_rules('driver_first_name', 'First Name', 'required');
+            $this->form_validation->set_rules('driver_last_name', 'Last Name', 'required');
+            $this->form_validation->set_rules('driver_dob', 'Date of Birth', 'required');
+            $this->form_validation->set_rules('driver_phone_number', 'Phone Number', 'required');
+            $this->form_validation->set_rules('company_id','Company','required');
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+            //if the form has passed through the validation
+            if ($this->form_validation->run())
+            {
+                $date_to_format_to_mysql_time = $this->input->post('driver_dob');
+                $db_date = DateTime::createFromFormat('d-m-Y', $date_to_format_to_mysql_time);
+                $data_to_store = array(
+                    'driver_first_name' => $this->input->post('driver_first_name'),
+                    'driver_last_name' => $this->input->post('driver_last_name'),
+                    'driver_dob' => $db_date->format('Y-m-d'),
+                    'driver_phone_number' => $this->input->post('driver_phone_number'),
+                    'company_id' => $this->input->post('company_id')
+                );
+                //if the insert has returned true then we show the flash message
+                if($this->drivers_model->update_driver($driver_id, $data_to_store) == TRUE){
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+//                redirect('admin/deliveries/update/'.$id.'');
+
+            }//validation run
+
+        }
+        //fetch facilities data to populate the select field
+        $data['companies'] = $this->suppliers_model->get_suppliers();
+        $data['driver'] = $this->drivers_model->get_driver_by_id($driver_id);
+        //load the view
+        $data['main_content'] = 'admin/drivers/edit';
+        $this->load->view('includes/template', $data);
     }
     public function delete($driver_id) {
         $driver_id = $this->uri->segment(4);

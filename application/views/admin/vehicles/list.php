@@ -81,9 +81,9 @@
 
                     echo '<td class="crud-actions">
                   <span>
-                  <a href="'.site_url("admin").'/suppliers/update/'.$row['company_id'].'" class="btn btn-info">view & edit</a>
+                  <a href="'.site_url("admin").'/vehicles/update/'.$row['vehicle_id'].'" class="btn btn-info">view & edit</a>
 
-                  <a onclick="return confirm(\'Are you sure?\')" href="'.site_url("admin").'/suppliers/delete/'.$row['company_id'].'" class="btn btn-danger">delete</a>
+                  <a onclick="return confirm(\'Are you sure?\')" href="'.site_url("admin").'/vehicles/delete/'.$row['vehicle_id'].'" class="btn btn-danger">delete</a>
                   </span>
                   <div class="btn-group full-width">
                       <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">

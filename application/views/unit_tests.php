@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Unit Tests</title>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css"/>
 </head>
 <body>
