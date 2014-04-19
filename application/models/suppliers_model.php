@@ -68,7 +68,7 @@ class Suppliers_model extends CI_Model {
     }
     function update_supplier($supplier_id,$data_to_store) {
         $this->db->set($data_to_store);
-        $this->db->where('suppliers_table.vehicle_id', $supplier_id);
+        $this->db->where('suppliers_table.company_id', $supplier_id);
         $this->db->update('supplier_companies as suppliers_table');
 
         $report = array();
@@ -92,6 +92,13 @@ class Suppliers_model extends CI_Model {
         $this->db->where('company_id',$supplier_id);
         $query = $this->db->get();
         return $query->row()->company_name;
+    }
+    function get_supplier_by_id($supplier_id) {
+        $this->db->select('*');
+        $this->db->from('supplier_companies');
+        $this->db->where('company_id',$supplier_id);
+        $query = $this->db->get();
+        return $query->result_array();
     }
     function list_vehicles($supplier_id) {
         $this->db->select('*');

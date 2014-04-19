@@ -155,7 +155,44 @@ class Admin_suppliers extends CI_Controller {
 
     }//index
     public function update() {
+        $supplier_id = $this->uri->segment(4);
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            //form validation
+            $this->form_validation->set_rules('company_name', 'Name', 'required');
+            $this->form_validation->set_rules('company_address1', 'Address 1', 'required');
+            $this->form_validation->set_rules('company_address2', 'Address 2', 'required');
+            $this->form_validation->set_rules('company_locality', 'Town/City', 'required');
+            $this->form_validation->set_rules('company_county', 'County', 'required');
+            $this->form_validation->set_rules('company_country', 'Country', 'required');
+            $this->form_validation->set_rules('company_postcode', 'Postcode', 'required');
+            $this->form_validation->set_rules('company_sector', 'Business Sector', 'required');
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
 
+            if ($this->form_validation->run())
+            {
+                $data_to_store = array(
+                    'company_name' => $this->input->post('company_name'),
+                    'company_address1' => $this->input->post('company_address1'),
+                    'company_address2' => $this->input->post('company_address2'),
+                    'company_locality' => $this->input->post('company_locality'),
+                    'company_county' => $this->input->post('company_county'),
+                    'company_country' => $this->input->post('company_country'),
+                    'company_postcode' => $this->input->post('company_postcode'),
+                    'company_sector' => $this->input->post('company_sector')
+                );
+
+                if($this->suppliers_model->update_supplier($supplier_id,$data_to_store)){
+                    $data['flash_message'] = TRUE;
+                }else{
+                    $data['flash_message'] = FALSE;
+                }
+
+            }
+        }
+        $data['supplier'] = $this->suppliers_model->get_supplier_by_id($supplier_id);
+        $data['main_content'] = 'admin/suppliers/edit';
+        $this->load->view('includes/template',$data);
     }
     public function add() {
         if ($this->input->server('REQUEST_METHOD') === 'POST')

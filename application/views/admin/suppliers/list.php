@@ -62,6 +62,7 @@
                     <th class="header">ID</th>
                     <th class="yellow header headerSortDown">Name</th>
                     <th class="header">Address</th>
+                    <th>Sector</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,7 +72,8 @@
                     echo '<tr>';
                     echo '<td>'.$row['company_id'].'</td>';
                     echo '<td>'.$row['company_name'].'</td>';
-                    echo '<td><p>'.$row['company_address1'].'</p><p>'.$row['company_address2'].'</p><p>'.$row['company_locality'].'</p><p>'.$row['company_county'].'</p><p>'.$row['company_country'].'</p><p>'.strtoupper($row['company_postcode']).'</td>';
+                    echo '<td><address>'.$row['company_address1'].' '.$row['company_address2'].'<br>'.$row['company_locality'].'<br>'.$row['company_county'].'<br>'.$row['company_country'].'<br>'.strtoupper($row['company_postcode']).'</address></td>';
+                    echo '<td>'.$row['company_sector'].'</td>';
                     echo '<td class="crud-actions">
                   <span>
                   <a href="'.site_url("admin").'/suppliers/update/'.$row['company_id'].'" class="btn btn-info">view & edit</a>
