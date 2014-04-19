@@ -19,7 +19,7 @@
         }
 //        if()
         echo '<legend>Current Facilities</legend>';
-
+        echo '<p>Please use this page to check out deliveries out of particular facilities once they are done. Once you have <strong>checked out of all facilities</strong>, then the delivery status will automatically be changed to "done"</p>';
         if(count($delivery_info) > 0) {
         echo '<div id="rows"><table class="table table-striped"><thead><th>ID</th><th>Name</th><th>Town/City</th><th>Postcode</th><th>Start Time</th><th>Status</th><th>&nbsp;</th><th>&nbsp;</th></thead><tbody>';
         foreach($delivery_info as $row) {

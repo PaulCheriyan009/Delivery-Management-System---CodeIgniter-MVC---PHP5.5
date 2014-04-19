@@ -206,9 +206,6 @@ class Admin_facilities extends CI_Controller {
                     $data['flash_message'] = FALSE; 
                 }
 
-            } else {
-                // take off hidden fields class
-//                $this->jquery->show('div.hidden-slide-down');
             }
 
         }

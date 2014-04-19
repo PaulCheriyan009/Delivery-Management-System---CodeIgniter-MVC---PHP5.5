@@ -55,47 +55,48 @@
         <div class="row-fluid">
             <div class="span4 pagination-centered">
                 <div class="items">
-                    <ul>
                     <?php
                     if(!empty($in_progress_deliveries)) {
+                        echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Description</th><th>Actions</th></tr></thead><tbody>';
                         foreach($in_progress_deliveries as $row) {
-                            echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                            echo '<tr><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td>'.$row['description'].'</td><td><a href="'.site_url('admin').'/deliveries/add_facility/'.$row['delivery_id'].'" class="btn btn-info">Check Out</a></td></tr>';
                         }
+                        echo '</tbody></table>';
                     } else {
-                        echo '<li>Sorry, no results.</li>';
+                        echo '<p>Sorry, no results.</p>';
                     }
                       ?>
-                    </ul>
                 </div>
             </div>
             <div class="span4 pagination-centered">
                 <div class="items">
-                    <ul>
                         <?php
                         if(!empty($booked_deliveries)) {
+                            echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Description</th></tr></thead><tbody>';
                             foreach($booked_deliveries as $row) {
-                                echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                                echo '<tr><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td>'.$row['description'].'</td><td><a href="" class="btn btn-primary authorize-delivery">Authorize</a><input type="hidden" value="'.$row['delivery_id'].'"></td></tr>';
                             }
+                            echo '</tbody></table>';
                         } else {
-                            echo '<li>Sorry, no results.</li>';
+                            echo '<p>Sorry, no results.</p>';
                         }
                         ?>
-                    </ul>
                 </div>
             </div>
             <div class="span4 pagination-centered">
                 <div class="items">
-                    <ul>
                         <?php
                         if(!empty($expired_deliveries)) {
+                            echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Description</th></tr></thead><tbody>';
                             foreach($expired_deliveries as $row) {
-                                echo '<li><table><tbody><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td></td><td>test</td></tbody></table></li>';
+                                echo '<tr><td><a href="'.site_url("admin").'/deliveries/update/'.$row['delivery_id'].'">'.$row['delivery_id'].'</a></td><td>'.$row['description'].'</td></tr>';
                             }
+                            echo '</tbody></table>';
+                            echo '</tbody></table>';
                         } else {
-                            echo '<li>Sorry, no results.</li>';
+                            echo '<p>Sorry, no results.</p>';
                         }
                         ?>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -104,9 +105,7 @@
         <h3>Deliveries (Past 5 Days)</h3>
         <hr>
         <div class="row-fluid">
-            <div id="graph1" class="span6 pagination-centered">
-            </div>
-            <div class="span6 pagination-centered">
+            <div id="graph1" class="span12 pagination-centered">
             </div>
         </div>
         <h3></h3>
@@ -114,12 +113,28 @@
 </div>
 <script>
     $(document).ready(function(){
-        var base_url = '<?php echo base_url() ?>' + 'admin/dashboard/';
+        var base_url = '<?php echo base_url() ?>';
+        $('.authorize-delivery').click(function(e){
+            e.preventDefault();
+            var delivery_id = $(this).parent().find('input[type="hidden"]').val();
+            $.ajax({
+                url:base_url + 'admin/dashboard/authorize-delivery/' + delivery_id + '/2',
+                type: 'POST',
+                dataType:'json',
+                success: function(data) {
+                    $(this).text('Authorized');
+                    $(this).removeClass('btn-primary');
+                    $(this).addClass('btn-success');
+                    $(this).parent().parent().parent().parent().parent().hide('fade',1000);
+                }
+            })
+        });
+
         var d = new Date();
         d.setDate(d.getDate() - 5);
         $.ajax({
             type: 'POST',
-            url: base_url + 'get_delivery_count_by_date_range/' + formattedDate(d) + '/' + formattedDate(new Date()),
+            url: base_url + 'admin/dashboard/get_delivery_count_by_date_range/' + formattedDate(d) + '/' + formattedDate(new Date()),
             cache: false,
             success: function (data) {
                 new Morris.Line({

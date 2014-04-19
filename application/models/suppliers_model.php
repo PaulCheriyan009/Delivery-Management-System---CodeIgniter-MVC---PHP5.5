@@ -62,14 +62,36 @@ class Suppliers_model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+    function store_supplier($data_to_store) {
+        $insert = $this->db->insert('supplier_companies', $data_to_store);
+        return $insert;
+    }
+    function update_supplier($supplier_id,$data_to_store) {
+        $this->db->set($data_to_store);
+        $this->db->where('suppliers_table.vehicle_id', $supplier_id);
+        $this->db->update('supplier_companies as suppliers_table');
+
+        $report = array();
+        $report['error'] = $this->db->_error_number();
+        $report['message'] = $this->db->_error_message();
+        if($report !== 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     function delete_supplier($id){
-        //delete all records where supplier id is equal to in deliveries table
-//        $this->db->where('vehicle_id', $id);
-//        $this->db->delete('deliveries');
         $this->db->where('company_id', $id);
         $this->db->delete('vehicles');
         $this->db->where('company_id', $id);
         $this->db->delete('supplier_companies');
+    }
+    function get_supplier_name($supplier_id) {
+        $this->db->select('company_name');
+        $this->db->from('supplier_companies');
+        $this->db->where('company_id',$supplier_id);
+        $query = $this->db->get();
+        return $query->row()->company_name;
     }
     function list_vehicles($supplier_id) {
         $this->db->select('*');

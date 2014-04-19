@@ -11,7 +11,6 @@ class Admin_dashboard extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('deliveries_model');
-//        $this->load->model('facilities_model');
 
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
@@ -32,5 +31,18 @@ class Admin_dashboard extends CI_Controller {
         $data['delivery_count'] = $this->deliveries_model->get_delivery_counts_day_view($start_date,$end_date);
         $this->output->set_content_type('application/json')
             ->set_output(json_encode($data['delivery_count']));
+    }
+    public function update_status($delivery_id,$status_id) {
+        $delivery_id = $this->uri->segment(4);
+        $status_id = $this->uri->segment(5);
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            $data_to_store = array(
+                'status_id' => $status_id
+            );
+            $this->deliveries_model->update_delivery($delivery_id,$data_to_store);
+        } else {
+            redirect(site_url('admin'));
+        }
     }
 } 

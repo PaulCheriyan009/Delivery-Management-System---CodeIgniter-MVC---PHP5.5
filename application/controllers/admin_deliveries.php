@@ -219,30 +219,6 @@ class Admin_deliveries extends CI_Controller {
             return FALSE;
         }
     }
-    public function validate_time($str)
-    {
-//Assume $str SHOULD be entered as HH:MM
-
-        list($hh, $mm) = preg_split('[:]', $str);
-
-        if (!is_numeric($hh) || !is_numeric($mm))
-        {
-            $this->form_validation->set_message('validate_time', 'Not numeric');
-            return FALSE;
-        }
-        else if ((int) $hh > 24 || (int) $mm > 59)
-        {
-            $this->form_validation->set_message('validate_time', 'Invalid time');
-            return FALSE;
-        }
-        else if (mktime((int) $hh, (int) $mm) === FALSE)
-        {
-            $this->form_validation->set_message('validate_time', 'Invalid time');
-            return FALSE;
-        }
-
-        return TRUE;
-    }
     public function add()
     {
         //if save button was clicked, get the data sent via post
@@ -297,14 +273,9 @@ class Admin_deliveries extends CI_Controller {
             redirect(base_url());
         }
     }
-    /**
-    * Update item by his id
-    * @return void
-    */
+
     public function update()
     {
-//        $this->output->enable_profiler(TRUE);
-        //deliveryid
         $id = $this->uri->segment(4);
   
         //if save button was clicked, get the data sent via post
@@ -314,7 +285,6 @@ class Admin_deliveries extends CI_Controller {
             $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('date_stamp', 'Date', 'required|callback_validdate');
             $this->form_validation->set_rules('vehicle_id', 'Vehicle ID', 'required|numeric');
-//            $this->form_validation->set_rules('facility_id', 'Facility ID', 'required');
             $this->form_validation->set_rules('driver_id','driver_id','required');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             //if the form has passed through the validation
@@ -335,7 +305,6 @@ class Admin_deliveries extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-//                redirect('admin/deliveries/update/'.$id.'');
 
             }//validation run
 
