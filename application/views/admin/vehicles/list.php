@@ -85,15 +85,6 @@
 
                   <a onclick="return confirm(\'Are you sure?\')" href="'.site_url("admin").'/vehicles/delete/'.$row['vehicle_id'].'" class="btn btn-danger">delete</a>
                   </span>
-                  <div class="btn-group full-width">
-                      <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">
-                        more actions
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="">view/edit drivers</a></li>
-                        <li><a href="">view/edit vehicles</a></li>
-                      </ul>
-                    </div>
                 </td>';
                     echo '</tr>';
                 }

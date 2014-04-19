@@ -161,4 +161,19 @@ class Admin_suppliers extends CI_Controller {
         $this->suppliers_model->delete_supplier($id);
         redirect('admin/suppliers');
     }//edit
+
+    public function list_vehicles($supplier_id) {
+        $supplier_id = $this->uri->segment(4);
+        $data['vehicles'] = $this->suppliers_model->list_vehicles($supplier_id);
+        $data['main_content'] = 'admin/suppliers/view_edit_vehicles';
+        $this->load->view('includes/template',$data);
+
+    }
+
+    public function list_drivers($supplier_id) {
+        $supplier_id = $this->uri->segment(4);
+        $data['main_content'] = 'admin/suppliers/view_edit_drivers';
+        $data['drivers'] = $this->suppliers_model->list_drivers($supplier_id);
+        $this->load->view('includes/template',$data);
+    }
 }

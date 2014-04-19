@@ -96,6 +96,9 @@ $route['admin/vehicles/delete/(:num)'] = 'admin_vehicles/delete/$1';
 /* supplier routes */
 $route['admin/suppliers'] = 'admin_suppliers/index';
 $route['admin/suppliers/delete/(:num)'] = 'admin_suppliers/delete/$1';
+$route['admin/suppliers/list-vehicles/(:num)'] = 'admin_suppliers/list_vehicles/$1';
+$route['admin/suppliers/list-drivers/(:num)'] = 'admin_suppliers/list_drivers/$1';
+
 /* dashboard */
 $route['admin/dashboard'] = 'admin_dashboard/index';
 $route['admin/dashboard/get_delivery_count_by_date_range/(:any)/(:any)'] = 'admin_dashboard/get_delivery_count_by_date_range/$1/$2';

@@ -83,8 +83,8 @@
                         more actions
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="">view/edit drivers</a></li>
-                        <li><a href="">view/edit vehicles</a></li>
+                        <li><a href="'.site_url('admin').'/suppliers/list-drivers/'.$row['company_id'].'">view/edit drivers</a></li>
+                        <li><a href="'.site_url('admin').'/suppliers/list-vehicles/'.$row['company_id'].'">view/edit vehicles</a></li>
                       </ul>
                     </div>
                 </td>';

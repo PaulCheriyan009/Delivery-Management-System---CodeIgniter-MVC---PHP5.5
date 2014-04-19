@@ -71,4 +71,18 @@ class Suppliers_model extends CI_Model {
         $this->db->where('company_id', $id);
         $this->db->delete('supplier_companies');
     }
+    function list_vehicles($supplier_id) {
+        $this->db->select('*');
+        $this->db->from('vehicles');
+        $this->db->where('company_id',$supplier_id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    function list_drivers($supplier_id) {
+        $this->db->select('*');
+        $this->db->from('drivers');
+        $this->db->where('company_id',$supplier_id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 } 
