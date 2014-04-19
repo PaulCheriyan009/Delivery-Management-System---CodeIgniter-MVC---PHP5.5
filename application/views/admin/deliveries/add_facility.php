@@ -29,7 +29,11 @@
             echo '<td>'.$row['facility_locality'].'</td>';
             echo '<td class="postcode">'.$row['facility_postcode'].'</td>';
             echo '<td>'.$row['start_time'].'</td>';
-            echo '<td>'.$row['status'].'</td>';
+            if(!empty($row['status'])) {
+                echo '<td>'.$row['status'].'</td>';
+            } else {
+                echo '<td>-</td>';
+            }
             echo '<td><a class="span1 delete-facility btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Remove</a>';
             echo '<td><a class="span1 btn btn-success update-status" href="#"><i class="fa fa-check-square-o"></i> Done</a></td>';
             echo '<input id="link_id" name="id" type="hidden" value="'.$row['id'].'"/></td>';
@@ -102,6 +106,7 @@
         })
             .done(function( msg ) {
                 $(this).parent().parent().addClass('success');
+                location.reload();
             });
     });
     // add facility

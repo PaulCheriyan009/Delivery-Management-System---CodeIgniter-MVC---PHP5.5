@@ -17,7 +17,6 @@
             <?php
             echo $supplier_name
             ?> - <small>All Drivers</small>
-            <a  href="<?php echo site_url("admin")?>/drivers/add" class="btn btn-success">Add a new driver</a>
         </h2>
     </div>
 
