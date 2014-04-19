@@ -65,10 +65,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deliveries_model.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="deliveries_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/deliveries_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="65" selection-start="8122" selection-end="8122" vertical-scroll-proportion="0.4573955" vertical-offset="2191" max-vertical-offset="4275">
+            <state line="181" column="65" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-10.48" vertical-offset="2191" max-vertical-offset="4275">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_delivery_listing.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="77" selection-start="495" selection-end="495" vertical-scroll-proportion="0.15354331" vertical-offset="0" max-vertical-offset="1270">
               <folding />
             </state>
           </provider>
@@ -157,7 +166,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/deliveries/edit.php" />
         <option value="$PROJECT_DIR$/assets/css/frontend/style.css" />
         <option value="$PROJECT_DIR$/application/views/frontend/view_login.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_creation.php" />
         <option value="$PROJECT_DIR$/assets/css/frontend/bookingscreen.css" />
         <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_booking.php" />
@@ -201,6 +209,7 @@
         <option value="$PROJECT_DIR$/application/views/admin/dashboard/index.php" />
         <option value="$PROJECT_DIR$/application/views/admin/deliveries/add_facility.php" />
         <option value="$PROJECT_DIR$/application/models/deliveries_model.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php" />
       </list>
     </option>
   </component>
@@ -1081,13 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="34" selection-start="180" selection-end="180" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="174" column="70" selection-start="5921" selection-end="5921" vertical-scroll-proportion="-33.75" vertical-offset="1800" max-vertical-offset="3210">
@@ -1151,7 +1153,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/deliveries_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="65" selection-start="8122" selection-end="8122" vertical-scroll-proportion="0.4573955" vertical-offset="2191" max-vertical-offset="4275">
+        <state line="181" column="65" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-10.48" vertical-offset="2191" max-vertical-offset="4275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/view_delivery_listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="77" selection-start="495" selection-end="495" vertical-scroll-proportion="0.15354331" vertical-offset="0" max-vertical-offset="1270">
           <folding />
         </state>
       </provider>
