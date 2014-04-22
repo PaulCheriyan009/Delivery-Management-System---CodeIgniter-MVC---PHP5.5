@@ -70,7 +70,30 @@
 
 </div>
 <!-- /.content-section-b -->
+<div class="content-section-a">
 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Are you a DMS Company Employee?</h2>
+                <p class="lead">
+                    To visit the administration area, please follow the link below.
+                </p>
+                <a href="<?php echo site_url('admin')?>" class="btn btn-warning btn-lg">Go to Admin Area</a>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="<?php echo base_url(); ?>assets/img/admin.png" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
 <div class="banner">
 
     <div class="container">

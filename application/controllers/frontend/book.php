@@ -77,4 +77,17 @@ class book extends CI_Controller {
             $this->output->set_status_header('401');
         }
     }
+
+    function sample_function() {
+        if($this->input->server('REQUEST_METHOD') === 'POST') {
+            // capture user input and post this data to the model for storage in the database
+            $data_to_store = array(
+              'some_field' => $this->input->post('some_field')
+            );
+            $this->sample_model->store_data($data_to_store);
+        } else {
+            // load existing data from the model into the view
+            $data['data_to_show'] = $this->sample_model->get_data();
+        }
+    }
 } 

@@ -59,7 +59,6 @@ class User extends CI_Controller {
     {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
-            $this->output->enable_profiler(TRUE);
         $this->load->model('Users_model');
 
         $email = $this->input->post('email');
